@@ -1,8 +1,11 @@
+import { useTranslations } from 'next-intl'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const t = useTranslations('home');
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +16,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {/* zmiana języka */}
+          {t('welcome')}
         </h1>
 
         <p className={styles.description}>
@@ -66,4 +70,17 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+
+// pages/index.js
+export async function getStaticProps({locale}) {
+  return {
+    props: {
+      // You can get the messages from anywhere you like. The recommended
+      // pattern is to put them in JSON files separated by language and read
+      // the desired one based on the `locale` received from Next.js.
+      messages: (await import(`../lang/index/${locale}.json`)).default
+    }
+  };
 }
