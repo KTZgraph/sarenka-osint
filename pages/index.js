@@ -1,23 +1,12 @@
-import { useRouter } from "next/router";
-import { Fragment } from "react";
-import Layout from "../components/layout";
+import useTranslation from 'next-translate/useTranslation'
+
 
 function HomePage(props) {
-  let router = useRouter();
-
   //dobre do prerenderowania stron np we własnym CMSie
-  let greeting =
-    router.locale === "en-US"
-      ? "Hello there"
-      : router.locale === "pl"
-      ? "Witajcie"
-      : "";
+  let {t} = useTranslation(); //hook  // t to funckja która pomaga tłumaczyć stringi
 
   return (
-    <Layout>
-      <h1>{greeting}</h1>
-      {/* <h1>{props.greeting}</h1> */}
-    </Layout>
+      <h1>{t('common:greeting')}</h1>
   );
 }
 
