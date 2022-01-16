@@ -24,6 +24,8 @@ body {
   --color-grey-9: #252525;
   --color-grey-10: #1e1e1e;
 
+  --main-navigation-height: 5rem;
+
   background-color: black;
   background-image: url(../public/black-black-grey-black.png); /*, center, no-repeat;*/
   background-position: center;
