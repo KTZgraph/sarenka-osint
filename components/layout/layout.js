@@ -6,8 +6,8 @@ function Layout(props){
     return(
         <Fragment>
             <MainNavigation/>
-            <main className='wrapper'>{props.children}</main>
-            <Footer/>
+            <main className='main'>{props.children}</main>
+            {/* <Footer/> */}
         </Fragment>
     )
 }
