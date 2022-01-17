@@ -20,6 +20,14 @@ function MainMenu() {
             </a>
           </Link>
         </li>
+
+        <li className={classes.item}>
+          <Link href="/auth">
+            <a href="#" className={classes.link}>
+              <span className={classes.text}>Login</span>
+            </a>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
