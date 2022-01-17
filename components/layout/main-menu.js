@@ -14,9 +14,9 @@ function MainMenu() {
 
       <ul className={classes.list}>
         <li className={classes.item}>
-          <Link href="/">
+          <Link href="/credentials">
             <a href="#" className={classes.link}>
-              <span className={classes.text}>Dashboard</span>
+              <span className={classes.text}>Credentials</span>
             </a>
           </Link>
         </li>

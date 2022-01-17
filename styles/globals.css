@@ -24,7 +24,13 @@ body {
   --color-grey-9: #252525;
   --color-grey-10: #1e1e1e;
 
+  --color-black-1: #18191b;
+  --color-black-2: #131416;
+  --color-black-2: #0C0D0E;
+
+
   --main-navigation-height: 5rem;
+  --main-menu-width: 15rem;
 
   background-color: black;
   background-image: url(../public/black-black-grey-black.png); /*, center, no-repeat;*/
@@ -44,6 +50,15 @@ html {
 
 
 .main{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  position: fixed;
+  left: var(--main-menu-width);
   min-height: calc(100vh - var(--main-navigation-height));
+  width: calc(100% - var(--main-menu-width));
+  /* background-color: yellow; */
+  box-sizing: border-box;
   text-align: center;
+  padding: 40px;
 }

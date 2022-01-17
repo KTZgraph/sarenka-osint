@@ -1,8 +1,10 @@
 .sidebar {
-  width: 15vw;
+  width: var(--main-menu-width);
   height: calc(100vh - var(--main-navigation-height));
-  background-color: var(--color-grey-9);
+  background-color: var(--color-grey-10);
   position: fixed;
+  top: 5rem;
+  left: 0;
   font-size: 2rem;
   /* domyslnie menu schowane */
   /* left: -15vw; */
@@ -19,7 +21,7 @@
   /* domyslnie pojawia sie w lewym gornym rogu - zmiana na góre prawo*/
   position: absolute;
   right: 0; /* domylsnie ikona ma być widoczna */
-  top: -3.5rem;
+  top: 0;
   /* wysrodkowanie - można obliczyc (3.5rem - 2.5rem[szerokosc linii)/2 i z tego wyniku obnliczyc padding*/
   padding: 0.5rem;
   box-sizing: border-box; /*bo przez padding sie powiekszyl elemnt*/
