@@ -1,0 +1,52 @@
+.sidebar {
+  width: 15vw;
+  height: calc(100vh - var(--main-navigation-height));
+  background-color: var(--color-grey-9);
+  position: fixed;
+  font-size: 2rem;
+  /* domyslnie menu schowane */
+  /* left: -15vw; */
+  padding: 1.5rem 1rem;
+  z-index: 100; /*żeby ikona hamburgera byla widoczna*/
+  transition: left 0.2s;
+}
+
+.hamburgerMenu {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: black;
+  /* border-bottom-right-radius: 1rem; */
+  /* domyslnie pojawia sie w lewym gornym rogu - zmiana na góre prawo*/
+  position: absolute;
+  right: 0; /* domylsnie ikona ma być widoczna */
+  top: -3.5rem;
+  /* wysrodkowanie - można obliczyc (3.5rem - 2.5rem[szerokosc linii)/2 i z tego wyniku obnliczyc padding*/
+  padding: 0.5rem;
+  box-sizing: border-box; /*bo przez padding sie powiekszyl elemnt*/
+  /* SREDNIO MI SIE TO PODOBA to transition */
+  /*delay ostatnie*/
+  /* transition: right .3s .3s;  */
+}
+
+/* linie hamburgera */
+.line {
+  width: 2.5rem;
+  height: 0.3rem;
+  background-color: white;
+  /* linie domyslnie na siebie nachodza */
+  position: absolute;
+  /*zmiana punktu rotacji z domuyślnego centru, */
+  transform-origin: left;
+  /* animacja powrotu z X do zwyklego hamburgera */
+  transition: transform 0.3s, top 0.3s 0.3s, opacity 0.2s;
+}
+
+.line1 {
+  top: 1.2rem;
+}
+.line2 {
+  top: 1.8rem;
+}
+.line3 {
+  top: 2.4rem;
+}
