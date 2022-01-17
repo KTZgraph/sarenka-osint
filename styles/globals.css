@@ -53,12 +53,14 @@ html {
   display: flex;
   flex-flow: row;
   justify-content: center;
-  position: fixed;
-  left: var(--main-menu-width);
   min-height: calc(100vh - var(--main-navigation-height));
   width: calc(100% - var(--main-menu-width));
-  /* background-color: yellow; */
+  margin-left: var(--main-menu-width);
   box-sizing: border-box;
   text-align: center;
   padding: 40px;
+  background-color: #00000075;
+
+  /* background-color: pink; */
+
 }

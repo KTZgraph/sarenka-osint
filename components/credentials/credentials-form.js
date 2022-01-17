@@ -1,34 +1,35 @@
+import Link from "next/link";
 import { useState } from "react";
-import classes from "./shodan-form.module.css";
+import classes from "./credentials-form.module.css";
 
-function ShodanForm() {
+function CredentialsForm(props) {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredApiKey, setEnteredApiKey] = useState("");
 
   return (
     <section className={classes.section}>
-      <h1>Shodan</h1>
+      <h1>{props.title}</h1>
       <form className={classes.form}>
         <div className={classes.credentials}>
           <div className={classes.credential}>
-            <label htmlFor="username">Shodan Username</label>
+            <label htmlFor="username">{props.username}</label>
             <input
               type="text"
               id="username"
-              placeholder="Insert Shodan Username"
+              placeholder={props.usernamePlaceholder}
               required={true}
               value={enteredUsername}
               onChange={(event) => setEnteredUsername(event.target.value)}
             />
           </div>
           <div className={classes.credential}>
-            <label htmlFor="api-key">Shodan API Key</label>
+            <label htmlFor="api-key">{props.apiKey}</label>
             <input
               type="text"
               id="api-key"
               required={true}
               value={enteredApiKey}
-              placeholder="Insert Shodan API Key"
+              placeholder={props.apiKeyPlaceholder}
               onChange={(event) => setEnteredApiKey(event.target.value)}
             />
           </div>
@@ -36,13 +37,16 @@ function ShodanForm() {
 
         <div className={classes.actions}>
           <button className={classes.action}>Save</button>
+          <Link href={props.sourceUrl}>
+            <a className={classes.action}>acount</a>
+          </Link>
         </div>
       </form>
     </section>
   );
 }
 
-export default ShodanForm;
+export default CredentialsForm;
 
 // username
 // API key
