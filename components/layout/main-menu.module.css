@@ -14,14 +14,13 @@
 }
 
 .hamburgerMenu {
-  width: 3.5rem;
-  height: 3.5rem;
-  background-color: black;
-  /* border-bottom-right-radius: 1rem; */
+  width: var(--main-navigation-height);
+  height: var(--main-navigation-height);
+  /* background-color: black; */
   /* domyslnie pojawia sie w lewym gornym rogu - zmiana na góre prawo*/
   position: absolute;
   right: 0; /* domylsnie ikona ma być widoczna */
-  top: 0;
+  top: calc(-1* var(--main-navigation-height));
   /* wysrodkowanie - można obliczyc (3.5rem - 2.5rem[szerokosc linii)/2 i z tego wyniku obnliczyc padding*/
   padding: 0.5rem;
   box-sizing: border-box; /*bo przez padding sie powiekszyl elemnt*/
@@ -32,11 +31,13 @@
 
 /* linie hamburgera */
 .line {
-  width: 2.5rem;
+  width: 3rem;
   height: 0.3rem;
   background-color: white;
   /* linie domyslnie na siebie nachodza */
   position: absolute;
+  left: 1rem;
+  /* top: 1.55rem; */
   /*zmiana punktu rotacji z domuyślnego centru, */
   transform-origin: left;
   /* animacja powrotu z X do zwyklego hamburgera */
@@ -44,11 +45,11 @@
 }
 
 .line1 {
-  top: 1.2rem;
+  top: 1.55rem;
 }
 .line2 {
-  top: 1.8rem;
+  top: calc(1.55rem + 0.8rem);
 }
 .line3 {
-  top: 2.4rem;
+  top: calc(1.55rem + 0.8rem + 0.8rem) ;
 }
