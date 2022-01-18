@@ -21,9 +21,9 @@
   position: absolute;
   right: 0; /* domylsnie ikona ma być widoczna */
   top: calc(-1* var(--main-navigation-height));
-  /* wysrodkowanie - można obliczyc (3.5rem - 2.5rem[szerokosc linii)/2 i z tego wyniku obnliczyc padding*/
   padding: 0.5rem;
   box-sizing: border-box; /*bo przez padding sie powiekszyl elemnt*/
+
   /* SREDNIO MI SIE TO PODOBA to transition */
   /*delay ostatnie*/
   /* transition: right .3s .3s;  */
@@ -36,9 +36,8 @@
   background-color: white;
   /* linie domyslnie na siebie nachodza */
   position: absolute;
-  left: 1rem;
-  /* top: 1.55rem; */
-  /*zmiana punktu rotacji z domuyślnego centru, */
+  right: 0;
+  top: 0;
   transform-origin: left;
   /* animacja powrotu z X do zwyklego hamburgera */
   transition: transform 0.3s, top 0.3s 0.3s, opacity 0.2s;

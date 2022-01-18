@@ -6,7 +6,16 @@ function MainNavigation() {
     <header className={classes.header}>
       <Link href="/">
         <a>
-          <div className={classes.logo}>Sarenka</div>
+          <div className={classes.languages}>
+            <select>
+              <option>
+                <span>EN</span>
+              </option>
+              <option>
+                <span>PL</span>
+              </option>
+            </select>
+          </div>
         </a>
       </Link>
       <nav>
@@ -25,6 +34,5 @@ function MainNavigation() {
     </header>
   );
 }
-
 
 export default MainNavigation;
