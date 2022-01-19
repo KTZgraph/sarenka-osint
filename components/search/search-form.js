@@ -17,7 +17,7 @@ function SearchForm() {
             value={enteredSearch}
             onChange={(event) => setEnteredSearch(event.target.value)}
           />
-        <button className={classes.action}>-></button>
+        <button className={classes.action}>ikonka</button>
 
         </div>
       </form>
