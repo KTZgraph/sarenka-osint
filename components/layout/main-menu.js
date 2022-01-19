@@ -13,6 +13,14 @@ function MainMenu() {
       </div>
 
       <ul className={classes.list}>
+      <li className={classes.item}>
+          <Link href="/">
+            <a href="#" className={classes.link}>
+              <span className={classes.text}>Search</span>
+            </a>
+          </Link>
+        </li>
+
         <li className={classes.item}>
           <Link href="/credentials">
             <a href="#" className={classes.link}>
