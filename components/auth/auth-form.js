@@ -32,15 +32,19 @@ function AuthForm() {
             ref={passwordInputRef}
           />
         </div>
-        <div className={classes.control}>
-          <label htmlFor="passwordConfirmation">Confirm Your Password</label>
-          <input
-            type="password"
-            id="passwordConfirmation"
-            required
-            ref={passwordConfirmationInputRef}
-          />
-        </div>
+        {/* potwierdzenie hasła tylko przy rejestracji */}
+        {!isExistingUser && (
+          <div className={classes.control}>
+            <label htmlFor="passwordConfirmation">Confirm Your Password</label>
+            <input
+              type="password"
+              id="passwordConfirmation"
+              required
+              ref={passwordConfirmationInputRef}
+            />
+          </div>
+        )}
+
         <div className={classes.actions}>
           {/* jeśłi uzytkonik istnieje to pokazaż przycisk logowania */}
           <button>{isExistingUser ? "Login" : "Create account"}</button>
