@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { createUser, loginUser } from "../../lib/auth";
 
 import classes from "./auth-form.module.css";
 
@@ -10,9 +11,41 @@ function AuthForm() {
   const passwordInputRef = useRef();
   const passwordConfirmationInputRef = useRef();
 
-  // przełączanie zaloguj / zarejestruj
+  // przełączanie HTMLa zaloguj / zarejestruj
   function switchAuthModeHandler() {
     setIsExistingUser((prevState) => !prevState);
+  }
+
+  async function submitHandler(event) {
+    event.preventDefault();
+
+    eneteredUsername = usernameInputRef.current.value;
+    enteredPassword = passwordInputRef.current.value;
+
+    //logowanie
+    if (isExistingUser) {
+
+    }
+
+    // rejestracja
+    else {
+      // potwierdzenie hasła do rejestracji
+      enteredPasswordConfimation = passwordConfirmationInputRef.current.value;
+      try {
+        const result = createUser(
+          eneteredUsername,
+          enteredPassword,
+          enteredPasswordConfimation
+        );
+        // dobrze dac stworzenie użytkownika do notyfikacji
+        console.log(result);
+      } catch (error) {
+        // dobrze dac błąd do notyfikacji
+        console.log(error);
+      }
+    }
+
+    //jeśli jest już zalogowany to przekierować na credentiale
   }
 
   return (
