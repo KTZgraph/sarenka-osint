@@ -17,14 +17,14 @@ function Credentials() {
 
         />
 
-        <CredentialsForm 
+        {/* <CredentialsForm 
                   title={"Censys"}
                   username={"Censys API ID"}
                   usernamePlaceholder={"Insert Censys API ID"}
                   apiKey={"Censys Secret"}
                   apiKeyPlaceholder={"Insert Censys Secret"}
                   sourceUrl={"https://search.censys.io/account/api"}
-                  />
+                  /> */}
       </div>
     </div>
   );
