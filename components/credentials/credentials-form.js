@@ -38,7 +38,7 @@ function CredentialsForm(props) {
         <div className={classes.actions}>
           <button className={classes.action}>Save</button>
           <Link href={props.sourceUrl}>
-            <a className={classes.action}>acount</a>
+            <a className={classes.source}>acount</a>
           </Link>
         </div>
       </form>
