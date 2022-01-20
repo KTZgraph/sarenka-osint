@@ -24,7 +24,6 @@ function AuthForm() {
 
     //logowanie
     if (isExistingUser) {
-
     }
 
     // rejestracja
@@ -90,8 +89,8 @@ function AuthForm() {
             onClick={switchAuthModeHandler}
           >
             {isExistingUser
-              ? "Login with existing account"
-              : "Create new account"}
+              ? "Create new account"
+              : "Login with existing account"}
           </button>
         </div>
       </form>
