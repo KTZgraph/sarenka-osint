@@ -4,7 +4,7 @@
     font-size: 1.8rem;
     justify-content: flex-start;
     background-color: var(--color-grey-9);
-    width: 35%;
+    min-width: 35%;
     height: 50rem;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .control {
-    padding: 1rem;
+    padding: 1rem 10rem;
     display: flex;
     /* flex-basis: 0;
     flex-grow: 1; */
@@ -27,11 +27,15 @@
     margin-left: 0.7rem;
     color: black;
     font-size: 1.6rem;
+    flex-grow: 1;
 }
 
 .actions{
     display: flex;
-    justify-content: center;
+    flex-flow: column;
+    /* justify-content: center; */
+    /* width: 40%; */
+    align-items: center;
 }
 
 .actions button{
@@ -44,4 +48,18 @@
 
 .actions button:hover{
     background-color: var(--color-grey-7);
+    cursor: pointer;
+}
+
+.actions .toggle{
+    border: none;
+    background: transparent;
+    padding: 0.5rem 5rem;
+    margin: 5rem 2.5rem;
+    font-size: 1.8rem;
+}
+
+.actions .toggle:hover{
+    background: transparent;
+    text-decoration: underline;
 }

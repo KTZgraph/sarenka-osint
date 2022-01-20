@@ -4,9 +4,16 @@ import classes from "./auth-form.module.css";
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(false);
+  // na początku ma się pokazać rejestracja
+  const [isExistingUser, setIsExistingUser] = useState(false);
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
   const passwordConfirmationInputRef = useRef();
+
+  // przełączanie zaloguj / zarejestruj
+  function switchAuthModeHandler() {
+    setIsExistingUser((prevState) => !prevState);
+  }
 
   return (
     <section className={classes.auth}>
@@ -35,7 +42,20 @@ function AuthForm() {
           />
         </div>
         <div className={classes.actions}>
-          <button>Create new account</button>
+          {/* jeśłi uzytkonik istnieje to pokazaż przycisk logowania */}
+          <button>{isExistingUser ? "Login" : "Create account"}</button>
+
+          {/* przycisk zmiany formularzy */}
+          {/* jeśli użytkownik nie istnieje to pokaż formularz rejestracji */}
+          <button
+            type="button"
+            className={classes.toggle}
+            onClick={switchAuthModeHandler}
+          >
+            {isExistingUser
+              ? "Login with existing account"
+              : "Create new account"}
+          </button>
         </div>
       </form>
     </section>
