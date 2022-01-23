@@ -16,7 +16,7 @@ async function handler(req, res){
 
     
     //klucz z bazy użytkownika
-    const apiKey="klucz do api"; 
+    const apiKey="9NNwwXXNzSmk0IxWu107h6Nkmv7PYydb"; 
 
     try{
         const response = await searchbyIP("8.8.8.8", apiKey);

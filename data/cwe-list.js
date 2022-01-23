@@ -1,0 +1,57 @@
+const cweList = [
+    {
+        id: "CWE-94",
+        name: "Improper Control of Generation of Code ('Code Injection')",
+        abstraction: "The software constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or behavior of the intended code segment.",
+        structure: "Simple",
+        status: "Draft",
+        description: "The software constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or behavior of the intended code segment",
+        extended_description: "When software allows a user's input to contain code syntax, it might be possible for an attacker to craft the code in such a way that it will alter the intended control flow of the software. Such an alteration could lead to arbitrary code execution. Injection problems encompass a wide variety of issues -- all mitigated in very different ways. For this reason, the most effective way to discuss these weaknesses is to note the distinct features which classify them as injection weaknesses. The most important issue to note is that all injection problems share one thing in common -- i.e., they allow for the injection of control plane data into the user-controlled data plane. This means that the execution of the process may be altered by sending code in through legitimate data channels, using no other mechanism. While buffer overflows, and many other flaws, involve the use of some further issue to gain execution, injection problems need only for the data to be parsed. The most classic instantiations of this category of weakness are SQL injection and format string vulnerabilities."
+    },
+    {
+        id: "CWE-203",
+        name: "bservable Discrepancy",
+        abstraction: "Base",
+        structure: "Simple",
+        status: "Incomplete",
+        description: "The product behaves differently or sends different responses under different circumstances in a way that is observable to an unauthorized actor, which exposes security-relevant information about the state of the product, such as whether a particular operation was successful or not.",
+        extended_description: "Discrepancies can take many forms, and variations may be detectable in timing, control flow, communications such as replies or requests, or general behavior. These discrepancies can reveal information about the product's operation or internal state to an unauthorized actor. In some cases, discrepancies can be used by attackers to form a side channel."
+    },
+    {
+        id: "CWE-775",
+        name: "Missing Release of File Descriptor or Handle after Effective Lifetime",
+        abstraction: "Variant",
+        structure: "Simple",
+        status: "Incomplete",
+        description: "The software does not release a file descriptor or handle after its effective lifetime has ended, i.e., after the file descriptor/handle is no longer needed.",
+        extended_description: "When a file descriptor or handle is not released after use (typically by explicitly closing it), attackers can cause a denial of service by consuming all available file descriptors/handles, or otherwise preventing other system processes from obtaining their own file descriptors/handles."
+    },
+    {
+        id: "CWE-754",
+        name: "Improper Check for Unusual or Exceptional Conditions",
+        abstraction: "Class",
+        structure: "Simple",
+        status: "Incomplete",
+        description: "The software does not check or incorrectly checks for unusual or exceptional conditions that are not expected to occur frequently during day to day operation of the software.",
+        extended_description: "The programmer may assume that certain events or conditions will never occur or do not need to be worried about, such as low memory conditions, lack of access to resources due to restrictive permissions, or misbehaving clients or components. However, attackers may intentionally trigger these unusual conditions, thus violating the programmer's assumptions, possibly introducing instability, incorrect behavior, or a vulnerability. Note that this entry is not exclusively about the use of exceptions and exception handling, which are mechanisms for both checking and handling unusual or unexpected conditions."
+    },    
+    {
+        id: "CWE-125",
+        name: "Out-of-bounds Read",
+        abstraction: "Base",
+        structure: "Simple",
+        status: "Draft",
+        description: "The software reads data past the end, or before the beginning, of the intended buffer.",
+        extended_description: "Typically, this can allow attackers to read sensitive information from other memory locations or cause a crash. A crash can occur when the code reads a variable amount of data and assumes that a sentinel exists to stop the read operation, such as a NUL in a string. The expected sentinel might not be located in the out-of-bounds memory, causing excessive data to be read, leading to a segmentation fault or a buffer overflow. The software may modify an index or perform pointer arithmetic that references a memory location that is outside of the boundaries of the buffer. A subsequent read operation then produces undefined or unexpected results."
+    },
+    {
+        id: "CWE-416",
+        name: "Use After Free",
+        abstraction: "Variant",
+        structure: "Simple",
+        status: "Stable",
+        description: "Referencing memory after it has been freed can cause a program to crash, use unexpected values, or execute code.",
+        extended_description: "The use of previously-freed memory can have any number of adverse consequences, ranging from the corruption of valid data to the execution of arbitrary code, depending on the instantiation and timing of the flaw. The simplest way data corruption may occur involves the system's reuse of the freed memory. Use-after-free errors have two common and sometimes overlapping causes: Error conditions and other exceptional circumstances. Confusion over which part of the program is responsible for freeing the memory. In this scenario, the memory in question is allocated to another pointer validly at some point after it has been freed. The original pointer to the freed memory is used again and points to somewhere within the new allocation. As the data is changed, it corrupts the validly used memory; this induces undefined behavior in the process. If the newly allocated data chances to hold a class, in C++ for example, various function pointers may be scattered within the heap data. If one of these function pointers is overwritten with an address to valid shellcode, execution of arbitrary code can be achieved."
+    }
+    
+]
