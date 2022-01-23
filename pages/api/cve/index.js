@@ -1,53 +1,64 @@
-import cveList from "../../../data/cve-list";
-import { connectToDatabase, insertDocument } from "../../../lib/db";
+// import cveList from "../../../data/cve-list";
+import {
+  connectToDatabase,
+  getAllDocuments,
+  insertDocument,
+} from "../../../lib/db";
 
-// zwraca listę wszystkich cve z bazy
 async function handler(req, res) {
   if (req.method === "GET") {
-    res.status(200).json({ message: cveList });
+    // zwraca listę wszystkich cve z bazy
+    // // połączenie z bazą danych
+    const client = await connectToDatabase();
+
+    const cveList = await getAllDocuments(client, "cve", { id: -1 });
+
+    res.status(200).json(cveList);
+    client.close();
+    return;
   }
 
   if (req.method === "POST") {
-      console.log("\n\n\n\n\nPOST")
-      const {
-        id,
-        cweID,
-        description,
-        published,
-        updated,
-        vector,
-        baseScore,
-        status,
-        hyperlink,
-        source,
-      } = req.body;
+    // dodaje cve do bazy
+    const {
+      id,
+      cweID,
+      description,
+      published,
+      updated,
+      vector,
+      baseScore,
+      status,
+      hyperlink,
+      source,
+    } = req.body;
 
     // // połączenie z bazą danych
     const client = await connectToDatabase();
 
     // dodanie dokumentu do bazy danych
-    const result = insertDocument(client, "cve", {
-        id,
-        cweID,
-        description,
-        published,
-        updated,
-        vector,
-        baseScore,
-        status,
-        hyperlink,
-        source,
-    })
+    const result = await insertDocument(client, "cve", {
+      id,
+      cweID,
+      description,
+      published,
+      updated,
+      vector,
+      baseScore,
+      status,
+      hyperlink,
+      source,
+    });
 
-
-    console.log(result)
+    console.log(result);
+    // pamiętać o zamykaniu bazy
 
     res.status(201).json({ message: "CVE created!" });
+    client.close();
     return;
   }
 
-  res.status(200).json({ message: "dupa" });
-
+  res.status(405).json({ message: "Method no allowed" });
 }
 
 export default handler;
