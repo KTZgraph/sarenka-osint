@@ -24,10 +24,9 @@ async function handler(req, res) {
 
     // // połączenie z bazą danych
     const client = await connectToDatabase();
-    const db = client.db();
 
-    //zwraca promsia
-    const result = db.collection("cve").insertOne({
+    // dodanie dokumentu do bazy danych
+    const result = insertDocument(client, "cve", {
         id,
         cweID,
         description,
@@ -38,8 +37,10 @@ async function handler(req, res) {
         status,
         hyperlink,
         source,
-    });
+    })
 
+
+    console.log(result)
 
     res.status(201).json({ message: "CVE created!" });
     return;
