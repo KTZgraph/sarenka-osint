@@ -36,6 +36,15 @@ async function handler(req, res) {
     // // połączenie z bazą danych
     const client = await connectToDatabase();
 
+    // jeśli dokument o takim id jest w bazie to nie dodadawaj
+    const existingCVE = await getAllDocuments(client, "cve", {}, { id: id });
+    if (existingCVE) {
+      // 409 Conflict albo 400 bad request
+      //   https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
+      res.status(409).json({ message: `${id} already in database` });
+      return;
+    }
+
     // dodanie dokumentu do bazy danych
     const result = await insertDocument(client, "cve", {
       id,
