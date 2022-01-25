@@ -9,8 +9,7 @@ async function handler(req, res) {
 
   const client = await connectToDatabase();
   const cve = await getAllDocuments(client, "cve", {}, { id: cveId })[0];
-  console.log("\n\n\n\n\n");
-  console.log(cve);
+  client.close(); //pamietac o zzamykaniu poączenia z bazą
 
   if (cve) {
     res.status(200).json(cve);

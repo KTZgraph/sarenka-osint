@@ -19,7 +19,7 @@ async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    // dodaje cve do bazy
+    // dodaje cve do bazy, POSTMAN później skrypt jak w Pythonie
     const {
       id,
       cweID,
@@ -41,6 +41,7 @@ async function handler(req, res) {
     if (existingCVE) {
       // 409 Conflict albo 400 bad request
       //   https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
+      client.close(); //pamietac o zzamykaniu poączenia z bazą
       res.status(409).json({ message: `${id} already in database` });
       return;
     }
@@ -59,15 +60,13 @@ async function handler(req, res) {
       source,
     });
 
-    console.log(result);
     // pamiętać o zamykaniu bazy
-
-    res.status(201).json({ message: "CVE created!" });
     client.close();
+    res.status(201).json({ message: `${id} created with id ${result.insertedId}!` });
     return;
   }
 
-  res.status(405).json({ message: "Method no allowed" });
+  res.status(405).json({ message: "Method no allowed!" });
 }
 
 export default handler;
