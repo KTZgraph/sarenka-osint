@@ -8,15 +8,16 @@ async function handler(req, res) {
   const { cveId } = req.query;
 
   const client = await connectToDatabase();
-  const cve = await getAllDocuments(client, "cve", {}, { id: cveId })[0];
+  const cve = await getAllDocuments(client, "cve", {}, { id: cveId });
   client.close(); //pamietac o zzamykaniu poączenia z bazą
 
-  if (cve) {
-    res.status(200).json(cve);
+  const result = cve[0]
+  if (result) {
+    res.status(200).json(result);
     return;
   }
 
-  res.status(404).json({ message: "CVE not found" });
+  res.status(404).json({ message: `${cveId} not found` });
 }
 
 export default handler;
