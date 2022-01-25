@@ -32,9 +32,9 @@ body {
   --main-navigation-height: 5rem;
   --main-menu-width: 15rem;
 
-  background-color: black;
+  background-color: #00000075;
   background-image: url(../public/black-black-grey-black.png); /*, center, no-repeat;*/
-  background-position: center;
+  background-position: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   /* background-size: cover; */
@@ -60,7 +60,6 @@ html {
   box-sizing: border-box;
   text-align: center;
   padding: 40px;
-  background-color: #00000075;
 
   /* background-color: pink; */
 
