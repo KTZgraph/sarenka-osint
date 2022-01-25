@@ -5,13 +5,15 @@ import {
   insertDocument,
 } from "../../../lib/db";
 
+const COLLECTION_NAME = "cve";
+
 async function handler(req, res) {
   if (req.method === "GET") {
     // zwraca listę wszystkich cve z bazy
     // // połączenie z bazą danych
     const client = await connectToDatabase();
 
-    const cveList = await getAllDocuments(client, "cve", { id: -1 });
+    const cveList = await getAllDocuments(client, COLLECTION_NAME, { id: -1 });
 
     res.status(200).json(cveList);
     client.close();
@@ -37,7 +39,7 @@ async function handler(req, res) {
     const client = await connectToDatabase();
 
     // jeśli dokument o takim id jest w bazie to nie dodadawaj
-    const existingCVE = await getAllDocuments(client, "cve", {}, { id: id });
+    const existingCVE = await getAllDocuments(client, COLLECTION_NAME, {}, { id: id });
     if (existingCVE) {
       // 409 Conflict albo 400 bad request
       //   https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
@@ -47,7 +49,7 @@ async function handler(req, res) {
     }
 
     // dodanie dokumentu do bazy danych
-    const result = await insertDocument(client, "cve", {
+    const result = await insertDocument(client, COLLECTION_NAME, {
       id,
       cweID,
       description,

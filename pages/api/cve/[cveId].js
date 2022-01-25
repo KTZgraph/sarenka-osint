@@ -1,5 +1,7 @@
 import { connectToDatabase, getAllDocuments } from "../../../lib/db";
 
+const COLLECTION_NAME = "cve";
+
 async function handler(req, res) {
   if (req.method !== "GET") {
     res.status(405).json({ message: "Method no allowed" });
@@ -8,10 +10,10 @@ async function handler(req, res) {
   const { cveId } = req.query;
 
   const client = await connectToDatabase();
-  const cve = await getAllDocuments(client, "cve", {}, { id: cveId });
+  const cve = await getAllDocuments(client, COLLECTION_NAME, {}, { id: cveId });
   client.close(); //pamietac o zzamykaniu poączenia z bazą
 
-  const result = cve[0]
+  const result = cve[0];
   if (result) {
     res.status(200).json(result);
     return;
