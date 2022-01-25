@@ -40,7 +40,7 @@ async function handler(req, res) {
 
     // jeśli dokument o takim id jest w bazie to nie dodadawaj
     const existingCVE = await getAllDocuments(client, COLLECTION_NAME, {}, { id: id });
-    if (existingCVE) {
+    if (existingCVE[0]) {
       // 409 Conflict albo 400 bad request
       //   https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
       client.close(); //pamietac o zzamykaniu poączenia z bazą

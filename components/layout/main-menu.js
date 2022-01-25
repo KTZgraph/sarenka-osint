@@ -15,7 +15,7 @@ function MainMenu() {
       <ul className={classes.list}>
       <li className={classes.item}>
           <Link href="/">
-            <a className={classes.link}>
+            <a href="#" className={classes.link}>
               <span className={classes.text}>Search</span>
             </a>
           </Link>
@@ -23,7 +23,7 @@ function MainMenu() {
 
         <li className={classes.item}>
           <Link href="/credentials">
-            <a className={classes.link}>
+            <a href="#" className={classes.link}>
               <span className={classes.text}>Credentials</span>
             </a>
           </Link>
@@ -31,15 +31,23 @@ function MainMenu() {
 
         <li className={classes.item}>
           <Link href="/cwe">
-            <a className={classes.link}>
+            <a href="#" className={classes.link}>
               <span className={classes.text}>CWE List</span>
             </a>
           </Link>
         </li>
 
         <li className={classes.item}>
+          <Link href="/cve">
+            <a href="#" className={classes.link}>
+              <span className={classes.text}>CVE List</span>
+            </a>
+          </Link>
+        </li>
+
+        <li className={classes.item}>
           <Link href="/auth">
-            <a className={classes.link}>
+            <a href="#" className={classes.link}>
               <span className={classes.text}>Login</span>
             </a>
           </Link>
