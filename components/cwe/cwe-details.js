@@ -12,6 +12,12 @@ function CWEDetails(props) {
       <p>{cwe.status}</p>
       <p>{cwe.description}</p>
       <p>{cwe.extended_description}</p>
+
+      <ul>
+        {cwe.cveList.map((cveId) => (
+          <li key={cveId}>{cveId}</li>
+        ))}
+      </ul>
     </div>
   );
 }
