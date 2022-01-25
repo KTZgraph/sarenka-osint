@@ -1,6 +1,8 @@
 // zwraca listę cwe
 import { getAllCWEs } from "../../lib/api-utils";
 import CWEList from "../../components/cwe/cwe-list";
+import Spinner from "../../components/ui/spinner";
+
 
 function CWEPage(props) {
   let { cweList } = props;
@@ -11,15 +13,15 @@ function CWEPage(props) {
 
 export async function getStaticProps() {
   // pozwala na statyczne prerenderowanie podczas npm run build - optymailizacja danych które rzadko sie zmieniają
-  const cweList = await getAllCWEs();
+  const cweList = await getAllCWEs(); //zwraca jsona
 
   return {
     props: {
       // obiekt
-      cweList: JSON.stringify(cweList), //nie może obiektu zwrócić z getStaticProps
+      cweList: cweList, //nie może obiektu musi JSON zwrócić z getStaticProps
     },
-    // odświeżanie co minutę, bo może przeciez nie być wszysktich
-    revalidate: 60,
+    // odświeżanie co 24h na produkcji
+    revalidate: 86400, // co 24h
   };
 }
 
