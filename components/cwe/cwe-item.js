@@ -1,6 +1,8 @@
 import classes from './cwe-item.module.css';
 import Button from '../ui/button';
 import ArrowRightIcon from '../icons/arrow-right-icon';
+
+
 function CWEItem(props) {
   const { cwe } = props;
 
