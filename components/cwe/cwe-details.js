@@ -1,4 +1,5 @@
 import classes from "./cwe-details.module.css";
+import Button from '../../components/ui/button';
 
 function CWEDetails(props) {
   const cwe = props.cwe;
@@ -13,9 +14,9 @@ function CWEDetails(props) {
       <p>{cwe.description}</p>
       <p>{cwe.extended_description}</p>
 
-      <ul>
+      <ul className={classes.actions}>
         {cwe.cveList.map((cveId) => (
-          <li key={cveId}>{cveId}</li>
+          <li><Button key={cveId}>{cveId}</Button></li>
         ))}
       </ul>
     </div>

@@ -20,6 +20,7 @@ export async function getStaticProps(context) {
   // optymalizacja prerenderowanie gdzie sie da
   const cweId = context.params.cweId;
   const cwe = await getCWEById(cweId);
+  
 
   return {
     props: {
