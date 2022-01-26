@@ -27,6 +27,8 @@ export async function getServerSideProps(context) {
 
   // zalogowany
   return {
+    // obiekt poptrzebny do ustawiania obiektu sesji w pages/_app.js
+    // nie wszsytkie strony potrzebują sesji
     props: { session }, //przekazuję obiket sesji przez props
   };
 }
