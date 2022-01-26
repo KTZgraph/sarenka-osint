@@ -1,13 +1,14 @@
 import { useState, useRef } from "react";
-import { createUser, loginUser } from "../../lib/auth";
-
 import classes from "./auth-form.module.css";
+import {createUser} from '../../lib/auth-utils';
+
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(false);
   // na początku ma się pokazać rejestracja
   const [isExistingUser, setIsExistingUser] = useState(false);
-  const usernameInputRef = useRef();
+
+  const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const passwordConfirmationInputRef = useRef();
 
@@ -19,24 +20,27 @@ function AuthForm() {
   async function submitHandler(event) {
     event.preventDefault();
 
-    eneteredUsername = usernameInputRef.current.value;
-    enteredPassword = passwordInputRef.current.value;
+    const enteredEmail = emailInputRef.current.value;
+    const enteredPassword = passwordInputRef.current.value;
+
+    // waldiacja na froncie - pomaga użźytkownikowi, ale to ta na backendzie realnie gwarantuje bezpieczenstwo
 
     //logowanie
     if (isExistingUser) {
+      // log user in
     }
 
     // rejestracja
     else {
-      // potwierdzenie hasła do rejestracji
-      enteredPasswordConfimation = passwordConfirmationInputRef.current.value;
       try {
-        const result = createUser(
-          eneteredUsername,
-          enteredPassword,
-          enteredPasswordConfimation
-        );
+        // potwierdzenie hasła do rejestracji
+        const enteredPassConfirm = passwordConfirmationInputRef.current.value;
+        if (enteredPassword !== enteredPassConfirm) {
+          throw new Error("Passwords don't match");
+        }
+        const result = await createUser(enteredEmail, enteredPassword);
         // dobrze dac stworzenie użytkownika do notyfikacji
+        // wiem, że użytkownik został stworozny
         console.log(result);
       } catch (error) {
         // dobrze dac błąd do notyfikacji
@@ -50,10 +54,10 @@ function AuthForm() {
   return (
     <section className={classes.auth}>
       <h1>Sign up</h1>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor="username">Your Username</label>
-          <input type="text" id="username" required ref={usernameInputRef} />
+          <label htmlFor="email">Your Email</label>
+          <input type="email" id="email" required ref={emailInputRef} />
         </div>
         <div className={classes.control}>
           <label htmlFor="password">Your Password</label>
