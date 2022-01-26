@@ -1,11 +1,14 @@
 import { useState, useRef } from "react";
 import { signIn } from "next-auth/client"; // do logowania
+import { useRouter } from "next/router"; //do przekierownia
 
 import classes from "./auth-form.module.css";
 import { createUser } from "../../lib/auth-utils";
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(false);
+  const router = useRouter(); //do przekierowania
+
   // na początku ma się pokazać rejestracja
   const [isExistingUser, setIsExistingUser] = useState(false);
 
@@ -32,16 +35,16 @@ function AuthForm() {
       const result = await signIn("credentials", {
         redirect: false, //zeby nie przekierowywał usera na error page w razie bledu, tylko pokazac jak na tej samej stronie
         email: enteredEmail,
-        password: enteredPassword
+        password: enteredPassword,
       });
 
       console.log(result);
-      if(!result.error){
+      if (!result.error) {
         // jak nie ma błedu to atrybut error jest nullem,
         // ustawić status, żeby zalogowany user widział wiecej podstron - ale trzeba ustawić token
-
+        // przekierować jak jest user prawidłowo zalogowany
+        router.replace('/credentials')
       }
-
     }
 
     // rejestracja
