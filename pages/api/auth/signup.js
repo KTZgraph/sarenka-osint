@@ -1,4 +1,4 @@
-import { connectToDatabase, insertDocument } from "../../../lib/db";
+import { connectToDatabase, insertDocument, findOne } from "../../../lib/db";
 import { hashPassword } from "../../../lib/auth";
 
 const COLLECTION_NAME = "users";
@@ -8,7 +8,7 @@ async function handler(req, res) {
     res.status(405).json({ message: "Method not allowed" });
     return;
   }
-  
+
   const data = req.body;
   const { email, password } = data;
 
@@ -26,6 +26,14 @@ async function handler(req, res) {
   }
 
   const client = await connectToDatabase();
+
+  const existingUser = await findOne(client, COLLECTION_NAME, { email: email });
+
+  if (existingUser) {
+    // user już istneieje w bazie danych
+    res.status(409).json({ message: "Conflict - user already exists" });
+    return;
+  }
 
   //   hashowanie hasła
   const hashedPassword = await hashPassword(password);
