@@ -9,7 +9,7 @@ import CredentialsForm from "./credentials-form";
 import classes from "./credentials.module.css";
 import Spinner from "../ui/spinner";
 
-function Credentials() {
+function Credentials() { //teraz w propsach mam biekt sesji usera
   const [isLoading, setIsLoading] = useState(true);
 
   // żeby pobrać sesję gdy ten komponent jest wyrenderowany
