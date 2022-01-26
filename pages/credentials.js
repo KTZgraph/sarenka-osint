@@ -11,19 +11,19 @@ function CredentialsPage() {
 // bardziej elenckie rozwiazanie przekirowania
 export async function getServerSideProps(context) {
   // nie getStaticProps bo ma działać dla kazdego requesta
-  const session = await getSession({ req: context.req }); //zwraca promisa, null jak not authenticated user
+  // const session = await getSession({ req: context.req }); //zwraca promisa, null jak not authenticated user
 
-  if (!session) {
-    // not-authenticated
-    // notFound: true, // ale jednak nie chcę pokazywać 404
-    return {
-      redirect: {
-        // przekierowanie niezalogowanego bez mrugania/flashing
-        destination: "/auth",
-        permament: false, //nie zawszer przekierowuje, tylko jeden raz jak niezalgowany
-      },
-    };
-  }
+  // if (!session) {
+  //   // not-authenticated
+  //   // notFound: true, // ale jednak nie chcę pokazywać 404
+  //   return {
+  //     redirect: {
+  //       // przekierowanie niezalogowanego bez mrugania/flashing
+  //       destination: "/auth",
+  //       permament: false, //nie zawszer przekierowuje, tylko jeden raz jak niezalgowany
+  //     },
+  //   };
+  // }
 
   // zalogowany
   return {
