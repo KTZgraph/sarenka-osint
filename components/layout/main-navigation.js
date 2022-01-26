@@ -8,7 +8,7 @@ function MainNavigation() {
   function logoutHandler() {
     //zwraca promisa ale useSession się aktulizuje wiec tutaj nic nie robię
     //z automatu cookie z JWT się wyczyści
-    // devtools -> Application -> cookies-> <serwer:port po lewej> -> next-auth.session.toke
+    // devtools -> Application -> cookies-> <serwer:port po lewej> -> next-auth.session.token
     signOut();
   }
 
