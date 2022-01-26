@@ -22,14 +22,6 @@ function MainMenu() {
         </li>
 
         <li className={classes.item}>
-          <Link href="/credentials">
-            <a href="#" className={classes.link}>
-              <span className={classes.text}>Credentials</span>
-            </a>
-          </Link>
-        </li>
-
-        <li className={classes.item}>
           <Link href="/cwe">
             <a href="#" className={classes.link}>
               <span className={classes.text}>CWE List</span>
@@ -45,13 +37,6 @@ function MainMenu() {
           </Link>
         </li>
 
-        <li className={classes.item}>
-          <Link href="/auth">
-            <a href="#" className={classes.link}>
-              <span className={classes.text}>Login</span>
-            </a>
-          </Link>
-        </li>
       </ul>
     </nav>
   );
