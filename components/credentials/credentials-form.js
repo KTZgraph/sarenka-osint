@@ -12,24 +12,24 @@ function CredentialsForm(props) {
       <form className={classes.form}>
         <div className={classes.credentials}>
           <div className={classes.credential}>
-            <label htmlFor="username">{props.username}</label>
+            <label htmlFor="input1">{props.input1}</label>
             <input
-              type="text"
-              id="username"
-              placeholder={props.usernamePlaceholder}
+              type={props.input1Type}
+              id="input1"
+              placeholder={props.input1Placeholder}
               required={true}
               value={enteredUsername}
               onChange={(event) => setEnteredUsername(event.target.value)}
             />
           </div>
           <div className={classes.credential}>
-            <label htmlFor="api-key">{props.apiKey}</label>
+            <label htmlFor="input2">{props.input2}</label>
             <input
-              type="text"
-              id="api-key"
+              type={props.input2Type}
+              id="input2"
               required={true}
               value={enteredApiKey}
-              placeholder={props.apiKeyPlaceholder}
+              placeholder={props.input2Placeholder}
               onChange={(event) => setEnteredApiKey(event.target.value)}
             />
           </div>
@@ -37,9 +37,11 @@ function CredentialsForm(props) {
 
         <div className={classes.actions}>
           <button className={classes.action}>Save</button>
-          <Link href={props.sourceUrl}>
+          {/* jak jest sourceUrl to pokaz link */}
+          {props.sourceUrl && <Link href={props.sourceUrl}>
             <a className={classes.source}>acount</a>
-          </Link>
+          </Link>}
+          
         </div>
       </form>
     </section>

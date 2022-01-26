@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import CredentialsForm from "./credentials-form";
 import classes from "./credentials.module.css";
 
@@ -8,23 +7,25 @@ function Credentials() {
       <h2>Credentials</h2>
       <div className={classes.credentialItems}>
         <CredentialsForm
-          title={"Shodan"}
-          username={"Shodan username"}
-          usernamePlaceholder={"Insert Shodan Username"}
-          apiKey={"Shodan API Key"}
-          apiKeyPlaceholder={"Insert Shodan API Key"}
-          sourceUrl={"https://account.shodan.io/"}
-
+          title={"User profile"}
+          input1={"Old password"}
+          input1Type={"password"}
+          input1Placeholder={"Insert Old Password"}
+          input2={"New Password"}
+          input2Type={"password"}
+          input2Placeholder={"Insert New password"}
+          sourceUrl={null}
         />
-
-        {/* <CredentialsForm 
-                  title={"Censys"}
-                  username={"Censys API ID"}
-                  usernamePlaceholder={"Insert Censys API ID"}
-                  apiKey={"Censys Secret"}
-                  apiKeyPlaceholder={"Insert Censys Secret"}
-                  sourceUrl={"https://search.censys.io/account/api"}
-                  /> */}
+        <CredentialsForm
+          title={"Shodan"}
+          input1={"Shodan username"}
+          input1Type={"text"}
+          input1Placeholder={"Insert Shodan Username"}
+          input2={"Shodan API Key"}
+          input2Type={"text"}
+          input2Placeholder={"Insert Shodan API Key"}
+          sourceUrl={"https://account.shodan.io/"}
+        />
       </div>
     </div>
   );
