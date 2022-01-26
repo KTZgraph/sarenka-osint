@@ -23,6 +23,7 @@ export async function getStaticProps(context) {
   
 
   return {
+    notFound: true, // żeby 404 wyświetlił na froncie
     props: {
       selectedCWE: cwe,
     },
