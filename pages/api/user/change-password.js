@@ -25,8 +25,9 @@ async function handler(req, res) {
   //   dane z sesji
   const userEmail = session.user.email;
   //   danez requesta z frontu
-  const oldPassword = req.body.oldPassword; //hasło stare z frontu
-  const newPassword = req.body.newPassword; //hasło nowe z frontu
+  const oldPassword = req.body.oldPassword;
+  const newPassword = req.body.newPassword;
+
 
   const client = await connectToDatabase();
   const user = await findOne(client, COLLECTION_NAME, { email: userEmail });
@@ -45,7 +46,7 @@ async function handler(req, res) {
   if (!passwordsAreEqual) {
     //stare hasło z frontu jest różne od tego z bazy
     // HTTP 403 Forbidden https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-    res.status(403).json("Passwords don't match.");
+    res.status(403).json({message: "Passwords don't match."});
     client.close(); //pamietać o zamykaniu połączenia z bazą
     return;
   }
@@ -58,7 +59,7 @@ async function handler(req, res) {
     { password: hashedPassword }
   );
 
-  console.log(result)
+
   client.close();
   res.status(200).json({message: 'Password updated'});
 }
