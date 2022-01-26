@@ -15,6 +15,7 @@ async function handler(req, res) {
   //   sprawdza obiekt req i waliduje pod maską czy jest cookie z tokenetem JWT
   const session = await getSession({ req: req }); //zwraca promisa; obiket albo null gdy niezalogowany
 
+  // ochrona endpointa przed niezalogowanym userem
   if (!session) {
     // notauthenticated user
     // http 401 authentication is missing
@@ -27,7 +28,6 @@ async function handler(req, res) {
   //   danez requesta z frontu
   const oldPassword = req.body.oldPassword;
   const newPassword = req.body.newPassword;
-
 
   const client = await connectToDatabase();
   const user = await findOne(client, COLLECTION_NAME, { email: userEmail });
@@ -46,7 +46,7 @@ async function handler(req, res) {
   if (!passwordsAreEqual) {
     //stare hasło z frontu jest różne od tego z bazy
     // HTTP 403 Forbidden https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-    res.status(403).json({message: "Passwords don't match."});
+    res.status(403).json({ message: "Passwords don't match." });
     client.close(); //pamietać o zamykaniu połączenia z bazą
     return;
   }
@@ -59,9 +59,9 @@ async function handler(req, res) {
     { password: hashedPassword }
   );
 
-
+  console.log(result);
   client.close();
-  res.status(200).json({message: 'Password updated'});
+  res.status(200).json({ message: "Password updated" });
 }
 
 export default handler;

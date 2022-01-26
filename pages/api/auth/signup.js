@@ -42,6 +42,9 @@ async function handler(req, res) {
   const result = insertDocument(client, COLLECTION_NAME, {
     email,
     password: hashedPassword,
+    shodanUsername: "",
+    shodanApiKey: ""
+
   });
 
   res.status(201).json({ message: "Created user!" });
