@@ -1,36 +1,10 @@
 // chronione - przekierować jeśli użytkownik not authenticated
-// import { useSession } from "next-auth/client";
-// const [session, loading] = useSession(); - problem, może np być wiecznie loading
-
-import { getSession } from "next-auth/client";
-import { useEffect, useState } from "react";
 
 import CredentialsForm from "./credentials-form";
 import classes from "./credentials.module.css";
-import Spinner from "../ui/spinner";
 
-function Credentials() { //teraz w propsach mam biekt sesji usera
-  const [isLoading, setIsLoading] = useState(true);
-
-  // żeby pobrać sesję gdy ten komponent jest wyrenderowany
-  useEffect(() => {
-    //zwraca promisa
-    getSession().then((session) => {
-      // zwrotjka obiekt może być null jak niezalogowany
-      if (!session) {
-        // przekierowanie jak niezalogowany user
-        window.location.href = "/auth";
-      } else {
-        // musi byc w elsie inaczej strona "miga"
-        setIsLoading(false); // dane pobrane
-      }
-    });
-  }, []);
-
-  if (isLoading) {
-    // mój własny stan czy jest logowanie - obejsci eproblemu wiecznego logowania danych
-    return <Spinner />;
-  }
+function Credentials() {
+  //wyrenderuje się jak jest zalogowany - tego pilnuje /pages/credentials.js w getServerSideProps logice
 
   return (
     <div className={classes.credentials}>
