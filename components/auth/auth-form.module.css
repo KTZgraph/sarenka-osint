@@ -6,6 +6,8 @@
     background-color: var(--color-grey-9);
     min-width: 35%;
     height: 50rem;
+    margin-top: 10rem;
+    flex-basis: 60rem;
 }
 
 .auth h1{

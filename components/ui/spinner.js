@@ -1,7 +1,8 @@
+import classes from './spinner.module.css'
 function Spinner() {
     return (
-      <div className="center">
-        <p>Loading...</p>
+      <div className={classes.spinner}>
+        <p>Loading ...</p>
       </div>
     );
   }

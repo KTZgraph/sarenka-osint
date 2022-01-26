@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+// chroniony endpoint - tylko dla zalogowanych
 import Credentials from "../components/credentials/credentials";
 
 function CredentialsPage() {
