@@ -1,9 +1,16 @@
 import Link from "next/link";
-import { useSession } from "next-auth/client";
+import { useSession, signOut } from "next-auth/client";
 import classes from "./main-navigation.module.css";
 
 function MainNavigation() {
   const [session, loading] = useSession();
+
+  function logoutHandler() {
+    //zwraca promisa ale useSession się aktulizuje wiec tutaj nic nie robię
+    //z automatu cookie z JWT się wyczyści
+    // devtools -> Application -> cookies-> <serwer:port po lewej> -> next-auth.session.toke
+    signOut();
+  }
 
   return (
     <header className={classes.header}>
@@ -40,7 +47,7 @@ function MainNavigation() {
           {/* logout tylko dla zalogowanych - gdy jest sesja */}
           {session && (
             <li>
-              <button>Logout</button>
+              <button onClick={logoutHandler}>Logout</button>
             </li>
           )}
         </ul>
