@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+
 import classes from "./credentials-form.module.css";
 
 function CredentialsForm(props) {
@@ -38,10 +39,11 @@ function CredentialsForm(props) {
         <div className={classes.actions}>
           <button className={classes.action}>Save</button>
           {/* jak jest sourceUrl to pokaz link */}
-          {props.sourceUrl && <Link href={props.sourceUrl}>
-            <a className={classes.source}>acount</a>
-          </Link>}
-          
+          {props.sourceUrl && (
+            <Link href={props.sourceUrl}>
+              <a className={classes.source}>acount</a>
+            </Link>
+          )}
         </div>
       </form>
     </section>

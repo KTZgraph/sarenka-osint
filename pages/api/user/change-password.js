@@ -1,7 +1,7 @@
 // chroniony endpoint - tylko zalogowany user moze zmienic swoje hasło
 import { getSession } from "next-auth/client"; //dziala tez po stronie serwera
-import { verifyPassword } from "../../../lib/auth";
-import { connectToDatabase, findOne } from "../../../lib/db";
+import { hashPassword, verifyPassword } from "../../../lib/auth";
+import { connectToDatabase, findOne, updateOne } from "../../../lib/db";
 
 const COLLECTION_NAME = "users";
 
@@ -45,10 +45,22 @@ async function handler(req, res) {
   if (!passwordsAreEqual) {
     //stare hasło z frontu jest różne od tego z bazy
     // HTTP 403 Forbidden https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-    res.status(403).json;
+    res.status(403).json("Passwords don't match.");
     client.close(); //pamietać o zamykaniu połączenia z bazą
     return;
   }
+
+  const hashedPassword = await hashPassword(newPassword);
+  const result = await updateOne(
+    client,
+    COLLECTION_NAME,
+    { email: userEmail },
+    { password: hashedPassword }
+  );
+
+  console.log(result)
+  client.close();
+  res.status(200).json({message: 'Password updated'});
 }
 
 export default handler;
