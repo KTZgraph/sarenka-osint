@@ -1,5 +1,6 @@
 // chroniony endpoint - tylko zalogowany user moze zmienic swoje hasło
 import { getSession } from "next-auth/client"; //dziala tez po stronie serwera
+
 import { hashPassword, verifyPassword } from "../../../lib/auth";
 import { connectToDatabase, findOne, updateOne } from "../../../lib/db";
 

@@ -1,31 +1,36 @@
-import { useState } from "react";
+import { useRef } from "react";
 import classes from "./search-form.module.css";
+import ArrowRightIcon from "../icons/arrow-right-icon";
 
 function SearchForm() {
-  const [enteredSearch, setEnteredSearch] = useState();
-  const [hasData, setHasData] = useState(false);
+  const searchRef = useRef();
 
-  async function submitHandler(event){
+  async function submitHandler(event) {
     event.preventDefault();
 
-    if(submitHandler){
-      const response = await fetch('/api/search', {
-        method: 'POST',
-        body: JSON.stringify({ipAddress: enteredSearch}),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    const enteredSearch = searchRef.current.value;
 
-      const data = await response.json(); // też zwraca Promise
-      console.log(data)
-      if (!response.ok) {
-        throw new Error(data.message || "Somethin wen wrong");
-      }
-
-      setHasData(true);
+    // walidacja po stronie klienta
+    if (!enteredSearch || enteredSearch.trim() === "") {
+      console.log("ip address is empty");
+      return;
     }
 
+    const response = await fetch("/api/search", {
+      method: "POST",
+      body: JSON.stringify({ ipAddress: enteredSearch }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json(); // też zwraca Promise
+    console.log(data);
+
+    if (!response.ok) {
+      // throw new Error(data.message || "Something went wrong");
+      console.log(response.error | "somethin went wrong");
+    }
   }
 
   return (
@@ -38,15 +43,15 @@ function SearchForm() {
             id="userSearch"
             placeholder="input ip address"
             required
-            value={enteredSearch}
-            onChange={(event) => setEnteredSearch(event.target.value)}
+            ref={searchRef}
           />
-        <button className={classes.action}>ikonka</button>
-
+          <button className={classes.action}>
+            <span className={classes.icon}>
+              <ArrowRightIcon />
+            </span>
+          </button>
         </div>
       </form>
-
-      <div>{setHasData}</div>
     </section>
   );
 }
