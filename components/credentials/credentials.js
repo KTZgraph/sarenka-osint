@@ -11,15 +11,19 @@ import Spinner from "../ui/spinner";
 
 function Credentials() {
   const [isLoading, setIsLoading] = useState(true);
-  const [loadedSession, setLoadedSession] = useState();
 
   // żeby pobrać sesję gdy ten komponent jest wyrenderowany
   useEffect(() => {
     //zwraca promisa
     getSession().then((session) => {
-      // może być null jak niezalogowany
-      setLoadedSession(session);
-      setIsLoading(false); // dane pobrane
+      // zwrotjka obiekt może być null jak niezalogowany
+      if (!session) {
+        // przekierowanie jak niezalogowany user
+        window.location.href = "/auth";
+      } else {
+        // musi byc w elsie inaczej strona "miga"
+        setIsLoading(false); // dane pobrane
+      }
     });
   }, []);
 
