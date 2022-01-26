@@ -16,7 +16,7 @@ function CWEDetails(props) {
 
       <ul className={classes.actions}>
         {cwe.cveList.map((cveId) => (
-          <li><Button key={cveId}>{cveId}</Button></li>
+          <li key={cveId}><Button >{cveId}</Button></li>
         ))}
       </ul>
     </div>
