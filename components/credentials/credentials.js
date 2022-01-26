@@ -7,14 +7,27 @@ import classes from "./credentials.module.css";
 function Credentials() {
   //wyrenderuje się jak jest zalogowany - tego pilnuje /pages/credentials.js w getServerSideProps logice
   async function changePasswordHandler(passwordData) {
-
-    const response = await fetch('/api/user/change-password', {
-      method: 'PATCH',
+    const response = await fetch("/api/user/change-password", {
+      method: "PATCH",
       body: JSON.stringify(passwordData),
       headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    // UI - dać userowi odpowiedź jakąs
+    console.log(data);
+  }
+
+  async function changeShodanCredentialsHandler(credentialsData) {
+    const response = await fetch("/api/user/shodan-credentials", {
+      method: "PATCH",
+      body: JSON.stringify(credentialsData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     const data = await response.json();
     // UI - dać userowi odpowiedź jakąs
@@ -26,7 +39,7 @@ function Credentials() {
       <h2>Credentials</h2>
       <div className={classes.credentialItems}>
         <ChangePasswordForm onChangePassword={changePasswordHandler} />
-        <ShodanForm />
+        <ShodanForm onChangeCredentials={changeShodanCredentialsHandler} />
       </div>
     </div>
   );
