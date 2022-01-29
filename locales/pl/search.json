@@ -1,3 +1,4 @@
 {
-    "search": "Wyszukaj"
+  "search": "Wyszukaj",
+  "introduction": "Mam na imię {{name}} i mam {{age}} lat"
 }

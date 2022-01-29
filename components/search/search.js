@@ -10,6 +10,7 @@ function Search() {
   return (
     <div className={classes.search}>
       <h2>{t('search:search')}</h2>
+      <p>{t('search:introduction', {name:'Losoweimię', age:99999999999})}</p>
       <div className={classes.searchItems}>
         <SearchForm />
         {/* searchdata */}
