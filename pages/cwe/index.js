@@ -7,7 +7,8 @@ import Spinner from "../../components/ui/spinner";
 function CWEPage(props) {
   let { cweList } = props;
   cweList = JSON.parse(cweList);
-
+// przekazać osobno propsy nie obiekt - Warning: Only strings and numbers are supported as <option> children.
+//TODO
   return <CWEList cweList={cweList} />;
 }
 
