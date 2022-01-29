@@ -19,7 +19,7 @@ export async function getStaticProps() {
   return {
     props: {
       // obiekt
-      cweList: cweList, //nie może obiektu musi JSON zwrócić z getStaticProps
+      cweList: JSON.stringify(cweList), //nie może obiektu musi JSON zwrócić z getStaticProps
     },
     // odświeżanie co 24h na produkcji
     revalidate: 86400, // co 24h

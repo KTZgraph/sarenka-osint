@@ -1,48 +1,52 @@
-import Spinner from "../../components/ui/spinner";
-import { getCWEById, getAllCWEs } from "../../lib/api-utils";
 import CWEDetails from "../../components/cwe/cwe-details";
+import { getAllCWEs, getCWEById } from "../../lib/api-utils";
+import Spinner from "../../components/ui/spinner";
 
 function CWEDetailPage(props) {
-  let cwe = props.selectedCWE;
-  cwe = JSON.parse(cwe);
+  const cwe = JSON.parse(props.cwe); //MUSI być obiekt z powrotem
 
-  // walidacja danych
   if (!cwe) {
+    // jeszcze nie pobrało danych
     return <Spinner />;
   }
 
+  //tylko typy proste przekazywac do komponentu - jeśli cały obiekt, to są warningi
   return (
-      <CWEDetails cwe={cwe} />
+    <CWEDetails
+      id={cwe.id}
+      name={cwe.name}
+      abstraction={cwe.abstraction}
+      structure={cwe.structure}
+      status={cwe.status}
+      description={cwe.description}
+      extended_description={cwe.extended_description}
+      cveList={cwe.cveList}
+    />
   );
 }
 
 export async function getStaticProps(context) {
-  // optymalizacja prerenderowanie gdzie sie da
   const cweId = context.params.cweId;
   const cwe = await getCWEById(cweId);
-  
 
   return {
-    notFound: true, // żeby 404 wyświetlił na froncie
     props: {
-      selectedCWE: cwe,
+      // może zwrócić tylko jsona
+      cwe: JSON.stringify(cwe),
+      cweId
     },
   };
 }
 
 export async function getStaticPaths() {
-  // instancje dla których trzeba wyrenderować wczesniej strony
-  let cwes = await getAllCWEs(); // raczej się zmieniają i są ogladane tylko przyszłe wydarzenia
-  cwes = JSON.parse(cwes);
-  //to tez w konsekwnecji sprawia, ze niektóe wydarzenia nie będę prerenderowane
+  const cwes = await getAllCWEs(); // raczej się zmieniają i są ogladane tylko przyszłe wydarzenia
 
   const paths = cwes.map((cwe) => ({ params: { cweId: cwe.id } }));
 
   return {
     paths: paths,
-    // będzie starała się dynamcicnzie renderowac strony
-    fallback: "blocking", // jest wiecej stron niż te które się wyrenderowany
-    //block nextjs niż nie srerwuje dopóki nie wyrenederujemy strony; trochę dłuzej to trwa ale zwraca już całą stronę
+    fallback: false, 
+   
   };
 }
 

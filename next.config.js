@@ -3,8 +3,6 @@ require("dotenv").config(); //zmienne z pliku .env
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
 module.exports = (phase) => {
-  console.log(process.env);
-
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     //gdy jesteśmy w developerskim serwerze
     return {
