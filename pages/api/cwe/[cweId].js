@@ -10,6 +10,9 @@ async function handler(req, res) {
   }
 
   const cweId = req.query.cweId;
+  console.log("\n\n\n\n\n")
+  console.log("cweId")
+  console.log(cweId)
 
   const client = await connectToDatabase();
   const cwe = await getAllDocuments(client, COLLECTION_NAME, {}, { id: cweId });
