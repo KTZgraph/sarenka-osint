@@ -1,8 +1,12 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useSession, signOut } from "next-auth/client";
 import classes from "./main-navigation.module.css";
 
 function MainNavigation() {
+  // do zmiany języka
+  let router = useRouter();
+
   const [session, loading] = useSession();
 
   function logoutHandler() {
@@ -17,14 +21,24 @@ function MainNavigation() {
       <Link href="/">
         <a>
           <div className={classes.languages}>
-            <select>
+            <ul>
+              {router.locales.map((locale) => (
+                <li key={locale}>
+                  <Link href={router.asPath} locale={locale}>
+                    <a>{locale}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* <select>
               <option>
                 <span>EN</span>
               </option>
               <option>
                 <span>PL</span>
               </option>
-            </select>
+            </select> */}
           </div>
         </a>
       </Link>

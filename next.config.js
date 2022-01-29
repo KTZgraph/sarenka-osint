@@ -3,9 +3,14 @@ require("dotenv").config(); //zmienne z pliku .env
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
 module.exports = (phase) => {
+  // credentiale do bazy danych z pliku ./.env
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     //gdy jesteśmy w developerskim serwerze
     return {
+      i18n: {
+        locales: ["en-US", "pl"],
+        defaultLocale: "en-US",
+      },
       reactStrictMode: true,
       env: {
         mongodb_username: process.env.MONGODB_USERNAME_DEV,
@@ -18,6 +23,10 @@ module.exports = (phase) => {
 
   // gdy jestesmy w produckji - testowe haskio
   return {
+    i18n: {
+      locales: ["en-US", "pl"],
+      defaultLocale: "en-US",
+    },
     reactStrictMode: true,
     env: {
       mongodb_username: process.env.MONGODB_USERNAME_PROD,

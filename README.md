@@ -39,3 +39,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - https://www.npmjs.com/package/mongodb
 - https://github.com/motdotla/dotenv#readme
 - https://www.youtube.com/watch?v=CQ5yHU1wYOo SWR
+- https://nextjs.org/docs/advanced-features/i18n-routing 
+- https://www.youtube.com/watch?v=Rbi52ZYtVKM  Internationalization (i18n)
