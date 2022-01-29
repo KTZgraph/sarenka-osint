@@ -1,7 +1,10 @@
+import { useContext } from 'react';
+import NotificationContext from '../../store/notification-context';
 import classes from './notification.module.css';
 
 function Notification(props) {
-//   const notificationCtx = useContext(NotificationContext);
+  // można contexutu używać także tam gdzie się go wykorzytuje
+  const notificationCtx = useContext(NotificationContext);
 
   const { title, message, status } = props;
 
@@ -22,7 +25,7 @@ function Notification(props) {
   const activeClasses = `${classes.notification} ${statusClasses}`;
 
   return (
-    <div className={activeClasses}>  
+    <div className={activeClasses} onClick={notificationCtx.hideNotification}>  
       <h2>{title}</h2>
       <p>{message}</p>
     </div>

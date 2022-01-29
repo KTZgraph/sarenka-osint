@@ -26,13 +26,11 @@ function Credentials() {
       },
     });
 
-    // UI - dać userowi odpowiedź jakąs
     try {
-
       const data = await response.json();
       if (!response.ok) {
         console.log(data);
-        throw new Error(data.message || 'Something went wrong');
+        throw new Error(data.message || "Something went wrong");
       }
 
       notificationCtx.showNotification({
