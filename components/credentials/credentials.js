@@ -28,9 +28,9 @@ function Credentials() {
 
     // UI - dać userowi odpowiedź jakąs
     try {
+
+      const data = await response.json();
       if (!response.ok) {
-        const data = await response.json();
-        console.log(data);
         console.log(data);
         throw new Error(data.message || 'Something went wrong');
       }
