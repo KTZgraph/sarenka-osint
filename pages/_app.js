@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Layout>
         <Component {...pageProps} />
-        <Notification title="test" message="this is a message" status="pending"/>
+        <Notification title="test" message="this is a message" status="error"/>
       </Layout>
     </Provider>
   );
