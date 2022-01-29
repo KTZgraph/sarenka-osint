@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 // nazwa z wielkiej żeby było wiadomo, że można Providera wyciągnąć
 const NotificationContext = createContext({
   notification: null, //{title, messsage, status}
-  showNotification: function () {}, //inicjalizacyjnie pusta punckja
+  showNotification: function (notificationData) {}, //inicjalizacyjnie pusta punckja
   hideNotification: function () {},
 });
 
