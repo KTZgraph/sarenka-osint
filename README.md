@@ -37,4 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # Biblioteki
 - https://www.npmjs.com/package/bcryptjs
 - https://www.npmjs.com/package/mongodb
+- https://github.com/motdotla/dotenv#readme
 - 

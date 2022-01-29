@@ -1,15 +1,19 @@
+require("dotenv").config(); //zmienne z pliku .env
+
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
 module.exports = (phase) => {
+  console.log(process.env);
+
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     //gdy jesteśmy w developerskim serwerze
     return {
       reactStrictMode: true,
       env: {
-        mongodb_username: "sarenka-app-demo",
-        mongodb_password: "Rm2CyQ0NxW296oxu",
-        mongodb_clustername: "cluster0",
-        mongodb_database: "sarenka-osint-demo",
+        mongodb_username: process.env.MONGODB_USERNAME_DEV,
+        mongodb_password: process.env.MONGODB_PASSWORD_DEV,
+        mongodb_clustername: process.env.MONGODB_CLUSTERNAME_DEV,
+        mongodb_database: process.env.MONGODB_DATABASE_DEV,
       },
     };
   }
@@ -18,10 +22,10 @@ module.exports = (phase) => {
   return {
     reactStrictMode: true,
     env: {
-      mongodb_username: "sarenka-app",
-      mongodb_password: "Rm2CyQ0NxW296oxu",
-      mongodb_clustername: "cluster0",
-      mongodb_database: "sarenka-osint",
+      mongodb_username: process.env.MONGODB_USERNAME_PROD,
+      mongodb_password: process.env.MONGODB_PASSWORD_PROD,
+      mongodb_clustername: process.env.MONGODB_CLUSTERNAME_PROD,
+      mongodb_database: process.env.MONGODB_DATABASE_PROD,
     },
   };
 };
