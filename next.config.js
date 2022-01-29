@@ -7,14 +7,14 @@ module.exports = (phase) => {
       reactStrictMode: true,
       env: {
         mongodb_username: "sarenka-app-demo",
-        mongodb_password: "BardzoSlabeHaslo123",
+        mongodb_password: "Rm2CyQ0NxW296oxu",
         mongodb_clustername: "cluster0",
         mongodb_database: "sarenka-osint-demo",
       },
     };
   }
 
-  // gdy jestesmy w produckji
+  // gdy jestesmy w produckji - testowe haskio
   return {
     reactStrictMode: true,
     env: {
