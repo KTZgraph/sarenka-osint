@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 // nazwa z wielkiej żeby było wiadomo, że można Providera wyciągnąć
 const NotificationContext = createContext({
@@ -8,8 +8,14 @@ const NotificationContext = createContext({
 });
 
 export function NotificationContextProvider(props) {
-    // ta funkcją opakowywać komponenty, które powinny mieć dostęp do tego kontekstu
-    // będzie ogarnaić wszystkiecontext-realteted state - useState etc żeby pokazywać i chować tutaj notyfikacje
+  const [activeNotification, setActiveNotification] = useState();
+
+  function showNotificationHandler(notificationData) {
+    setActiveNotification(notificationData);
+  }
+
+  function hideNotificationHandler() {}
+
   return (
     <NotificationContext.Provider>
       {props.children}
