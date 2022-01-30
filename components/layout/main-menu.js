@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { useSession } from "next-auth/client";
+import useTranslation from "next-translate/useTranslation";
+
 
 import classes from "./main-menu.module.css";
 import AppImage from "./app-image";
 
 function MainMenu() {
+  let {t} = useTranslation()
+
   const [session, loading] = useSession();
 
   return (
@@ -22,7 +26,7 @@ function MainMenu() {
         <li className={classes.item}>
           <Link href="/">
             <a className={classes.link}>
-              <span className={classes.text}>Search</span>
+              <span className={classes.text}>{t('common:search')}</span>
             </a>
           </Link>
         </li>
@@ -30,7 +34,7 @@ function MainMenu() {
         <li className={classes.item}>
           <Link href="/cwe">
             <a className={classes.link}>
-              <span className={classes.text}>CWE List</span>
+              <span className={classes.text}>{t('common:cweList')}</span>
             </a>
           </Link>
         </li>
@@ -38,7 +42,7 @@ function MainMenu() {
         <li className={classes.item}>
           <Link href="/cve">
             <a className={classes.link}>
-              <span className={classes.text}>CVE List</span>
+              <span className={classes.text}>{t('common:cveList')}</span>
             </a>
           </Link>
         </li>
@@ -46,7 +50,7 @@ function MainMenu() {
         {/* link widoczny tylko dla zalogowanych */}
         {session && (
           <li className={classes.item}>
-            <Link href="/credentials">Credentials</Link>
+            <Link href="/credentials">{t('common:credentials')}</Link>
           </li>
         )}
       </ul>
