@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
     props: {
       // może zwrócić tylko jsona
       cwe: JSON.stringify(cwe),
-      cweId
+      cweId,
     },
   };
 }
@@ -45,8 +45,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths,
-    fallback: false, 
-   
+    fallback: false,
   };
 }
 
