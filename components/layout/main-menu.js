@@ -1,6 +1,6 @@
 import Link from "next/link";
 import classes from "./main-menu.module.css";
-import UserImage from "./user-image";
+import AppImage from "./app-image";
 function MainMenu() {
   return (
     <nav className={classes.sidebar}>
@@ -12,7 +12,7 @@ function MainMenu() {
       </div> */}
 
 
-      <UserImage/>
+      <AppImage/>
 
 
       <ul className={classes.list}>
