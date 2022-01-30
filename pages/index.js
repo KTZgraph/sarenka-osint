@@ -3,15 +3,13 @@ import { useTranslation } from "next-i18next";
 
 import Search from "../components/search/search";
 
-function SearchPage(props) {
+function SearchPage() {
   const {t} = useTranslation();
 
   return (
     <>
-      <h1>Text for translations</h1>
-      <h1>{t('home:welcome_msg')}</h1>
-
-      <Search />
+      {/* <h1>{t('home:welcome_msg')}</h1> */}
+      <Search title={t('home:search')}/>
     </>
   );
 }
