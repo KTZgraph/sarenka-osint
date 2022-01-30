@@ -20,7 +20,7 @@ async function handler(req, res) {
   const result = cwe[0];
   if (result) {
     // dopisuję listę obiketów cve
-    const cveList = await getAllDocuments(client, "cve", {}, { cweID: cweId });
+    const cveList = await getAllDocuments(client, "cve", {}, { cweId: cweId });
     // mapuję żeby był atylko lista idków CWE
     result.cveList = cveList.map((cve) => cve.id);
     res.status(200).json(result);

@@ -24,7 +24,7 @@ async function handler(req, res) {
     // dodaje cve do bazy, POSTMAN później skrypt jak w Pythonie
     const {
       id,
-      cweID,
+      cweId,
       description,
       published,
       updated,
@@ -51,7 +51,7 @@ async function handler(req, res) {
     // dodanie dokumentu do bazy danych
     const result = await insertDocument(client, COLLECTION_NAME, {
       id,
-      cweID,
+      cweId,
       description,
       published,
       updated,

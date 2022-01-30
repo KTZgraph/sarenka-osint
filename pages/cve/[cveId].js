@@ -31,7 +31,7 @@ function CVEDetailPage(props) {
         status={cve.status}
         hyperlink={cve.hyperlink}
         source={cve.source}
-        cweID={cve.cweID}
+        cweId={cve.cweId}
       />
     </>
   );
