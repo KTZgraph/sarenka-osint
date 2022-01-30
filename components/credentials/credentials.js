@@ -1,5 +1,6 @@
 // chronione - przekierować jeśli użytkownik not authenticated
 import { useContext } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 import ChangePasswordForm from "./change-password-form";
 import ShodanForm from "./shodan-form";
@@ -7,6 +8,7 @@ import classes from "./credentials.module.css";
 import NotificationContext from "../../store/notification-context";
 
 function Credentials() {
+  let { t } = useTranslation();
   // do notyfikacji
   const notificationCtx = useContext(NotificationContext);
 
@@ -63,7 +65,7 @@ function Credentials() {
 
   return (
     <div className={classes.credentials}>
-      <h2>Credentials</h2>
+      <h2>{t("credentials:credentials")}</h2>
       <div className={classes.credentialItems}>
         <ChangePasswordForm onChangePassword={changePasswordHandler} />
         <ShodanForm onChangeCredentials={changeShodanCredentialsHandler} />

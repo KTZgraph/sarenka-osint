@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import CVEDetails from "../../components/cve/cve-details";
 import { getAllCVEs, getCVEById } from "../../lib/api-utils";
 import Spinner from "../../components/ui/spinner";
@@ -13,18 +15,25 @@ function CVEDetailPage(props) {
   }
 
   return (
-    <CVEDetails
-      id={cve.id}
-      description={cve.description}
-      published={cve.published}
-      updated={cve.updated}
-      vector={cve.vector}
-      baseScore={cve.baseScore}
-      status={cve.status}
-      hyperlink={cve.hyperlink}
-      source={cve.source}
-      cweID={cve.cweID}
-    />
+    <>
+      <Head>
+        {/* komponent na metadane np title */}
+        <title>Sarenka | {cve.id}</title>
+        <meta name="keywords" content={cve.id} />
+      </Head>
+      <CVEDetails
+        id={cve.id}
+        description={cve.description}
+        published={cve.published}
+        updated={cve.updated}
+        vector={cve.vector}
+        baseScore={cve.baseScore}
+        status={cve.status}
+        hyperlink={cve.hyperlink}
+        source={cve.source}
+        cweID={cve.cweID}
+      />
+    </>
   );
 }
 

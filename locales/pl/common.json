@@ -5,6 +5,12 @@
     "structure": "struktura",
     "status": "status",
     "description": "opis",
-    "extendedDescription": "rozszerzony opis"
+    "extendedDescription": "rozszerzony opis",
+    "cweList": "Lista CWE",
+    "cveList": "Lista CVE",
+    "search": "Szukaj",
+    "credentials": "Dane uwierzytelniające",
+    "save": "Zapisz",
+    "account": "Konto"
 
 }

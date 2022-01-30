@@ -1,10 +1,22 @@
 // chroniony endpoint - tylko dla zalogowanych
+import Head from "next/head";
 import { getSession } from "next-auth/client"; //działa też po stronie serwera
+import useTranslation from "next-translate/useTranslation";
 
 import Credentials from "../components/credentials/credentials";
 
 function CredentialsPage() {
-  return <Credentials />;
+  let { t } = useTranslation();
+
+  return (
+    <>
+      <Head>
+        {/* komponent na metadane np title */}
+        <title>Sarenka | {t("credentials:credentials")}</title>
+      </Head>
+      <Credentials />
+    </>
+  );
 }
 
 // usuwanie wkurzającego mrugania jak przekierowuje niezalogowanego usera z /credentials -> /auth

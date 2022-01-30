@@ -1,15 +1,27 @@
 // zwraca listę cwe
+import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
+
 import { getAllCWEs } from "../../lib/api-utils";
 import CWEList from "../../components/cwe/cwe-list";
-import Spinner from "../../components/ui/spinner";
-
 
 function CWEPage(props) {
+  let {t} = useTranslation()
+
   let { cweList } = props;
   cweList = JSON.parse(cweList);
-// przekazać osobno propsy nie obiekt - Warning: Only strings and numbers are supported as <option> children.
-//TODO
-  return <CWEList cweList={cweList} />;
+  // przekazać osobno propsy nie obiekt - Warning: Only strings and numbers are supported as <option> children.
+  //TODO
+  return (
+    <>
+      <Head>
+        {/* komponent na metadane np title */}
+        <title>Sarenka | {t('common:cweList')}</title>
+        <meta name="keywords" content={t('common:cweList')} />
+      </Head>
+      <CWEList cweList={cweList} />;
+    </>
+  );
 }
 
 export async function getStaticProps() {

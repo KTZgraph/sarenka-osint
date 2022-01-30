@@ -1,8 +1,11 @@
+import useTranslation from "next-translate/useTranslation";
 import { useRef } from "react";
 
 import classes from "./change-password-form.module.css";
 
 function ChangePasswordForm(props) {
+  let {t} = useTranslation()
+
   const oldPasswordRef = useRef("");
   const newPasswordRef = useRef("");
 
@@ -22,33 +25,33 @@ function ChangePasswordForm(props) {
 
   return (
     <section className={classes.section}>
-      <h1>Change Password</h1>
+      <h1>{t('credentials:changePassword')}</h1>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.credentials}>
           <div className={classes.credential}>
-            <label htmlFor="oldPassword">Old password</label>
+            <label htmlFor="oldPassword">{t('credentials:oldPassword')}</label>
             <input
               type="password"
               id="oldPassword"
-              placeholder="Insert old password"
+              placeholder={t('credentials:oldPasswordPlaceholder')}
               required={true}
               ref={oldPasswordRef}
             />
           </div>
           <div className={classes.credential}>
-            <label htmlFor="newPassword">New Password</label>
+            <label htmlFor="newPassword">{t('credentials:newPassword')}</label>
             <input
               type="password"
               id="password"
               required={true}
               ref={newPasswordRef}
-              placeholder="Insert new password"
+              placeholder={t('credentials:newPasswordPlaceholder')}
             />
           </div>
         </div>
 
         <div className={classes.actions}>
-          <button className={classes.action}>Save</button>
+          <button className={classes.action}>{t('common:save')}</button>
         </div>
       </form>
     </section>

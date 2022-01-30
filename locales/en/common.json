@@ -5,6 +5,10 @@
   "structure": "structure",
   "status": "status",
   "description": "description",
-  "extendedDescription": "extended description"
-
+  "extendedDescription": "extended description",
+  "cweList": "CWE List",
+  "cveList": "CVE List",
+  "search": "Search",
+  "save": "Save",
+  "account": "Account"
 }

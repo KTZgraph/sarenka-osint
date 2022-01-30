@@ -1,5 +1,7 @@
-import CWEDetails from "../../components/cwe/cwe-details";
+import Head from "next/head";
+
 import { getAllCWEs, getCWEById } from "../../lib/api-utils";
+import CWEDetails from "../../components/cwe/cwe-details";
 import Spinner from "../../components/ui/spinner";
 
 function CWEDetailPage(props) {
@@ -15,16 +17,23 @@ function CWEDetailPage(props) {
 
   //tylko typy proste przekazywac do komponentu - jeśli cały obiekt, to są warningi
   return (
-    <CWEDetails
-      id={cwe.id}
-      name={cwe.name}
-      abstraction={cwe.abstraction}
-      structure={cwe.structure}
-      status={cwe.status}
-      description={cwe.description}
-      extended_description={cwe.extended_description}
-      cveList={cwe.cveList}
-    />
+    <>
+      <Head>
+        {/* komponent na metadane np title */}
+        <title>Sarenka | {cwe.id}</title>
+        <meta name="keywords" content={cwe.id} />
+      </Head>
+      <CWEDetails
+        id={cwe.id}
+        name={cwe.name}
+        abstraction={cwe.abstraction}
+        structure={cwe.structure}
+        status={cwe.status}
+        description={cwe.description}
+        extended_description={cwe.extended_description}
+        cveList={cwe.cveList}
+      />
+    </>
   );
 }
 
