@@ -50,5 +50,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - https://i18nexus.com/ <3 od razu tłumaczenia google translate daje
 - npm install i18nexus-cli -g kozackie <3 potem od razu do ./public/locales w obu języka instaluje
 
+### przycisk do tłumaczeń 
+- https://www.youtube.com/watch?v=nW2QUJ7_13M
+- linki z tłumaczeniami npm i i18next
+
 # Komendy
 - npm install next-i18next
+
+# Porzucam - trzeba później rozkminić
+TypeError: Cannot read property 'i18n' of undefined
+>  8 |   const {i18n: {language}} = useContext(I18nContext);
+
+

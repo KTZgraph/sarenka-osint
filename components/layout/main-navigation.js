@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/client";
 import classes from "./main-navigation.module.css";
-import LanguageSwitcher from './language-switcher';
+import LanguageSwitcher from "./language-switcher";
 
 function MainNavigation() {
   // do zmiany języka
@@ -17,7 +17,7 @@ function MainNavigation() {
 
   return (
     <header className={classes.header}>
-<LanguageSwitcher/>
+      <LanguageSwitcher />
       <nav>
         <ul>
           {/* login tylko gdy niezalogowany - brak sesji i już dane są pobrane */}

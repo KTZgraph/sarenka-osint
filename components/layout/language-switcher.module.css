@@ -1,22 +1,23 @@
 .languages{
     color: white;
     padding: 0.5rem;
-    font-style: bold;
     margin-left: -1.5rem;
 
 }
 
 .languages button{
-    background-color: #cccccc;
-    color: #666666;
+    border: 1px solid var(--color-grey-9);
+    background: transparent;
+    color: black;
 }
 
 .languages button:hover {
-    background-color: black;
+    background-color: var(--color-grey-2);
     color: #ffffff;
   }
 
 .languages button.active{
-    color: red;
+    color: white;
+    font-style: bold;
     background-color: black;
 }

@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { i18n, I18nContext, i18nContext } from "next-i18next";
+import { i18n, I18nContext } from "next-i18next";
 import {useContext} from 'react'
 
 import classes from "./language-switcher.module.css";

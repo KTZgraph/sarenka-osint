@@ -1703,7 +1703,7 @@
   "resolved" "https://registry.npmjs.org/i18next-fs-backend/-/i18next-fs-backend-1.1.4.tgz"
   "version" "1.1.4"
 
-"i18next@^21.5.3", "i18next@>= 19.0.0":
+"i18next@^21.5.3", "i18next@^21.6.10", "i18next@>= 19.0.0":
   "integrity" "sha512-Xw+tEGQ61BF6SXtBlFffhM/YhJKHZf2cyDrcNK/l2dE6yVbkPkSasC3VhkAsHXX30vUJ0yG04WIUtf7UvwjOxg=="
   "resolved" "https://registry.npmjs.org/i18next/-/i18next-21.6.10.tgz"
   "version" "21.6.10"
