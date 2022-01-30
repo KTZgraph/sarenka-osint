@@ -41,11 +41,21 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const cwes = await getAllCWEs(); // raczej się zmieniają i są ogladane tylko przyszłe wydarzenia
 
-  const paths = cwes.map((cwe) => ({ params: { cweId: cwe.id } }));
+  // https://nextjs.org/docs/advanced-features/i18n-routing  trzeba tworzyć sciezki
+  const pathsEN = cwes.map((cwe) => ({
+    params: { cweId: cwe.id },
+    locale: "en",
+  }));
+  const pathsPL = cwes.map((cwe) => ({
+    params: { cweId: cwe.id },
+    locale: "pl",
+  }));
+
+  const pathsAll = pathsEN.concat(pathsPL); //konkatencja list
 
   return {
-    paths: paths,
-    fallback: false,
+    paths: pathsAll,
+    fallback: true,
   };
 }
 

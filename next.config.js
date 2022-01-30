@@ -9,6 +9,7 @@ module.exports = (phase) => {
     //gdy jesteśmy w developerskim serwerze
     return {
       ...nextTranslate(),
+      trailingSlash: true,
       reactStrictMode: true,
       env: {
         mongodb_username: process.env.MONGODB_USERNAME_DEV,
@@ -22,6 +23,7 @@ module.exports = (phase) => {
   // gdy jestesmy w produckji - testowe haskio
   return {
     ...nextTranslate(),
+    trailingSlash: true,
     reactStrictMode: true,
     env: {
       mongodb_username: process.env.MONGODB_USERNAME_PROD,

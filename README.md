@@ -42,3 +42,23 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - https://nextjs.org/docs/advanced-features/i18n-routing 
 - https://www.youtube.com/watch?v=Rbi52ZYtVKM  Internationalization (i18n)
 - npm install next-translate
+
+# tłumaczenia
+- https://nextjs.org/docs/advanced-features/i18n-routing
+- export async function getStaticPaths() { trzeba tworzyć ściezki dla wszsytkich podsta z id typu /[obiektID].js
+```
+  const pathsEN = cves.map((cve) => ({
+    params: { cveId: cve.id },
+    locale: "en",
+  }));
+  const pathsPL = cves.map((cve) => ({
+    params: { cveId: cve.id },
+    locale: "pl",
+  }));
+  const pathsAll = pathsEN.concat(pathsPL); //konkatencja list
+
+  return {
+    paths: pathsAll,
+    fallback: true,
+  };
+```
