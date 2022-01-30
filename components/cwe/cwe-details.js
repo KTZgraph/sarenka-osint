@@ -5,7 +5,7 @@ function CWEDetails(props) {
   // const cwe = props.cwe;
 
   return (
-    <div className={classes.details}>
+    <div className={classes.content}>
       <h2>{props.id}</h2>
       <p>{props.name}</p>
       <p>{props.abstraction}</p>
