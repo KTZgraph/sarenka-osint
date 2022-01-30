@@ -5,11 +5,11 @@ function MainMenu() {
   return (
     <nav className={classes.sidebar}>
       {/* Hamburger menu */}
-      {/* <div className={classes.hamburgerMenu}>
+      <div className={classes.hamburgerMenu}>
           <div className={[classes.line, classes.line1].join(" ")}></div>
           <div className={[classes.line, classes.line2].join(" ")}></div>
           <div className={[classes.line, classes.line3].join(" ")}></div>
-      </div> */}
+      </div>
 
 
       <AppImage/>

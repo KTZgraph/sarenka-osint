@@ -1,24 +1,29 @@
-import classes from "./language-switcher.module.css";
 import Link from "next/link";
-import { i18n } from "next-i18next";
+import { i18n, I18nContext, i18nContext } from "next-i18next";
+import {useContext} from 'react'
+
+import classes from "./language-switcher.module.css";
 
 function LanguageSwitcher() {
-  let language = 'en';
+  // sprawdzanie na któryum jezyku jesteśmy aktualnie
+  const {i18n: {language}} = useContext(I18nContext);
+
+
   return (
-    <div>
+    <div className={classes.languages}>
       <button
         type="button"
         onClick={() => i18n.changeLanguage("en")}
-        className={language === "en" ? "is-active" : ""}
+        className={`${language === "en" ? classes.active : ""}`}
       >
-        EN
+        en
       </button>
       <button
         type="button"
         onClick={() => i18n.changeLanguage("pl")}
-        className={language === "pl" ? "is-active" : ""}
+        className={`${language === "pl" ? classes.active : ""}`}
       >
-        PL
+        pl
       </button>
     </div>
   );
