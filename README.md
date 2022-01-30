@@ -43,7 +43,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - https://www.youtube.com/watch?v=Rbi52ZYtVKM  Internationalization (i18n)
 - npm install next-translate - nie używam
 - npm i --save react-select https://react-select.com/home - nie używam
+
+### Next.js Internationalization with next-i18next and Internationalized Routing (Full Walkthrough)
+- https://www.youtube.com/watch?v=UwzN8R6h9-U
 - https://github.com/isaachinman/next-i18next https://www.i18next.com/
+- https://i18nexus.com/ <3 od razu tłumaczenia google translate daje
+- npm install i18nexus-cli -g kozackie <3 potem od razu do ./public/locales w obu języka instaluje
 
 # Komendy
 - npm install next-i18next
