@@ -18,7 +18,8 @@ function MainMenu() {
           <div className={[classes.line, classes.line3].join(" ")}></div>
       </div>
       {/* logo aplikacji */}
-      <AppImage/>
+      {session && !loading && <AppImage userEmail={session.user.email}/>}
+      {(!session || loading )&& <AppImage/>}
       <ul className={classes.list}>
         <li className={classes.item}>
           <Link href="/">

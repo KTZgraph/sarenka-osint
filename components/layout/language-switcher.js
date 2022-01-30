@@ -6,7 +6,6 @@ import classes from "./language-switcher.module.css";
 
 function LanguageSwitcher() {
   let router = useRouter();
-  console.log(router.locale)
 
   return (
     <div className={classes.languages}>

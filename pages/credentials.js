@@ -9,7 +9,7 @@ function CredentialsPage() {
 
 // usuwanie wkurzającego mrugania jak przekierowuje niezalogowanego usera z /credentials -> /auth
 // bardziej elenckie rozwiazanie przekirowania
-/*
+
 export async function getServerSideProps(context) {
   // nie getStaticProps bo ma działać dla kazdego requesta
   const session = await getSession({ req: context.req }); //zwraca promisa, null jak not authenticated user
@@ -32,6 +32,6 @@ export async function getServerSideProps(context) {
     // nie wszsytkie strony potrzebują sesji
     props: { session }, //przekazuję obiket sesji przez props
   };
-}*/
+}
 
 export default CredentialsPage;
