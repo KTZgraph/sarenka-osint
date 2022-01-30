@@ -4,7 +4,6 @@ import classes from "./cwe-details.module.css";
 import Button from '../../components/ui/button';
 
 function CWEDetails(props) {
-  // const cwe = props.cwe;
   let {t} = useTranslation()
 
   return (

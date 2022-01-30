@@ -13,5 +13,11 @@
     "account": "Konto",
     "login": "Zaloguj",
     "credentials": "Uwierzytelnianie",
-    "logout":"Wyloguj"
+    "logout":"Wyloguj",
+    "published": "Opublikowany",
+    "updated":"Zaktualizowany",
+    "vetorAttack": "Wektor Ataku",
+    "baseScore": "Bazowa Skala",
+    "hyperlink": "Hyperlink",
+    "source": "Żródło"
 }

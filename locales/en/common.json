@@ -13,5 +13,11 @@
   "account": "Account",
   "login": "Login",
   "credentials": "Credentials",
-  "logout":"Logout"
+  "logout":"Logout",
+  "published": "Published",
+  "updated":"Updated",
+  "vetorAttack": "Vetor Attack",
+  "baseScore": "Base Score",
+  "hyperlink": "Hyperlink",
+  "source": "Source"
 }
