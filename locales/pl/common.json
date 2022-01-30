@@ -9,8 +9,10 @@
     "cweList": "Lista CWE",
     "cveList": "Lista CVE",
     "search": "Szukaj",
-    "credentials": "Dane uwierzytelniające",
     "save": "Zapisz",
-    "account": "Konto"
+    "account": "Konto",
+    "login": "Zaloguj",
+    "credentials": "Uwierzytelnianie",
+    "logout":"Wyloguj"
 
 }

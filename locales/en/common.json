@@ -10,5 +10,8 @@
   "cveList": "CVE List",
   "search": "Search",
   "save": "Save",
-  "account": "Account"
+  "account": "Account",
+  "login": "Login",
+  "credentials": "Credentials",
+  "logout":"Logout"
 }
