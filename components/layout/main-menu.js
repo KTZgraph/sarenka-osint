@@ -1,20 +1,24 @@
 import Link from "next/link";
+import { useSession } from "next-auth/client";
+
 import classes from "./main-menu.module.css";
-import UserImage from "./user-image";
+import AppImage from "./app-image";
+
+
 function MainMenu() {
+  const [session, loading] = useSession();
+
+
   return (
     <nav className={classes.sidebar}>
       {/* Hamburger menu */}
-      {/* <div className={classes.hamburgerMenu}>
+      <div className={classes.hamburgerMenu}>
           <div className={[classes.line, classes.line1].join(" ")}></div>
           <div className={[classes.line, classes.line2].join(" ")}></div>
           <div className={[classes.line, classes.line3].join(" ")}></div>
-      </div> */}
-
-
-      <UserImage/>
-
-
+      </div>
+      {/* logo aplikacji */}
+      <AppImage/>
       <ul className={classes.list}>
         <li className={classes.item}>
           <Link href="/">

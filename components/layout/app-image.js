@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import classes from './user-image.module.css';
+import classes from './app-image.module.css';
 import Link from "next/link";
 
-const UserImage = () => {
+const AppImage = () => {
     return (
             <Link href="/">
             <a href="#" className={classes.logo}>
@@ -13,7 +13,7 @@ const UserImage = () => {
             </div>
             <div className={classes.cardBody}>
                 <h2 className="card-title">SARENKA</h2>
-                <p className="card-subtitle">Administrator</p>
+                <p className="card-subtitle"></p>
             </div>    
         </div>
         </a>
@@ -21,4 +21,4 @@ const UserImage = () => {
     )
 }
 
-export default UserImage;
+export default AppImage;
