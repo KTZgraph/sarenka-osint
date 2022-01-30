@@ -1,9 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import classes from "./search-form.module.css";
 import ArrowRightIcon from "../icons/arrow-right-icon";
+import ShodanData from './shodan-data';
 
 function SearchForm() {
   const searchRef = useRef();
+  const [shodanData, setShodanData] = useState();
 
   async function submitHandler(event) {
     event.preventDefault();
@@ -31,6 +33,8 @@ function SearchForm() {
       // throw new Error(data.message || "Something went wrong");
       console.log(response.error | "somethin went wrong");
     }
+
+    setShodanData(data)
   }
 
   return (
@@ -52,6 +56,9 @@ function SearchForm() {
           </button>
         </div>
       </form>
+
+      {/* dane z shodana */}
+      {shodanData && <ShodanData data={shodanData}/>}
     </section>
   );
 }
