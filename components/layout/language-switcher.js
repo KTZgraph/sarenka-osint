@@ -1,7 +1,15 @@
 import classes from "./language-switcher.module.css";
+import Link from "next/link";
 
 function LanguageSwitcher() {
-  return <div>LanguageSwitcher</div>
+
+  return (
+    <div>
+<p>Language Switcher</p>
+    </div>
+  );
 }
+
+
 
 export default LanguageSwitcher;

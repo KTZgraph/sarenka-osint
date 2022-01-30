@@ -43,3 +43,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - https://www.youtube.com/watch?v=Rbi52ZYtVKM  Internationalization (i18n)
 - npm install next-translate - nie używam
 - npm i --save react-select https://react-select.com/home - nie używam
+- https://github.com/isaachinman/next-i18next https://www.i18next.com/
+
+# Komendy
+- npm install next-i18next
