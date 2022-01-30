@@ -3,7 +3,10 @@ import { getAllCWEs, getCWEById } from "../../lib/api-utils";
 import Spinner from "../../components/ui/spinner";
 
 function CWEDetailPage(props) {
-  const cwe = JSON.parse(props.cwe); //MUSI być obiekt z powrotem
+  let cwe;
+  if (props.cwe) {
+    cwe = JSON.parse(props.cwe); //MUSI być obiekt z powrotem
+  }
 
   if (!cwe) {
     // jeszcze nie pobrało danych
