@@ -1,11 +1,15 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { signIn } from "next-auth/client"; // do logowania
 import { useRouter } from "next/router"; //do przekierownia
 
 import classes from "./auth-form.module.css";
 import { createUser } from "../../lib/auth-utils";
+import NotificationContext from "../../store/notification-context";
 
 function AuthForm() {
+  // do notyfikacji
+  const notificationCtx = useContext(NotificationContext);
+
   const [isLogin, setIsLogin] = useState(false);
   const router = useRouter(); //do przekierowania
 
@@ -32,17 +36,36 @@ function AuthForm() {
     //logowanie
     if (isExistingUser) {
       // signIn( Provider - mbo moze być kilka, ObjectKonfiguracji)
+      notificationCtx.showNotification({
+        title: "Login",
+        message: "trying to log user",
+        status: "pendind",
+      });
+
       const result = await signIn("credentials", {
         redirect: false, //zeby nie przekierowywał usera na error page w razie bledu, tylko pokazac jak na tej samej stronie
         email: enteredEmail,
         password: enteredPassword,
       });
 
+      if(result.error){
+        // błąd logowania
+        notificationCtx.showNotification({
+          title: "Error",
+          message: result.error || "Couldn't log user",
+          status: "error",
+        });
+      }
       console.log(result);
       if (!result.error) {
         // jak nie ma błedu to atrybut error jest nullem,
         // ustawić status, żeby zalogowany user widział wiecej podstron - ale trzeba ustawić token
         // przekierować jak jest user prawidłowo zalogowany
+        notificationCtx.showNotification({
+          title: "Success",
+          message: "User logged succesfully",
+          status: "success",
+        });
         router.replace('/credentials')
       }
     }
