@@ -1,0 +1,14 @@
+.card{
+    margin: 2rem 0;
+    font-size: 1.8rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.cardImg{
+    align-self: center;
+}
+
+.cardBody{
+    font-size: 1.5rem;
+}

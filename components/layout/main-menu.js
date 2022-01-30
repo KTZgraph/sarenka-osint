@@ -1,6 +1,6 @@
 import Link from "next/link";
 import classes from "./main-menu.module.css";
-
+import UserImage from "./user-image";
 function MainMenu() {
   return (
     <nav className={classes.sidebar}>
@@ -11,8 +11,12 @@ function MainMenu() {
           <div className={[classes.line, classes.line3].join(" ")}></div>
       </div> */}
 
+
+      <UserImage/>
+
+
       <ul className={classes.list}>
-      <li className={classes.item}>
+        <li className={classes.item}>
           <Link href="/">
             <a href="#" className={classes.link}>
               <span className={classes.text}>Search</span>
@@ -35,7 +39,6 @@ function MainMenu() {
             </a>
           </Link>
         </li>
-
       </ul>
     </nav>
   );

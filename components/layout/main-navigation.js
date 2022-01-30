@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSession, signOut } from "next-auth/client";
 import classes from "./main-navigation.module.css";
+import Image from 'next/image';
 
 function MainNavigation() {
   // do zmiany języka
@@ -19,8 +20,15 @@ function MainNavigation() {
   return (
     <header className={classes.header}>
       <Link href="/">
-        <a>
-          <div className={classes.languages}>
+        <a href="#" className={classes.logo}>
+          <Image
+            src="/logo.png"
+            className="logo-image"
+            alt="Logo Image"
+            width={40}
+            height={40}
+          /></a>
+          {/* <div className={classes.languages}>
             <ul>
               {router.locales.map((locale) => (
                 <li key={locale}>
@@ -29,7 +37,7 @@ function MainNavigation() {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </ul> */}
 
             {/* <select>
               <option>
@@ -39,8 +47,7 @@ function MainNavigation() {
                 <span>PL</span>
               </option>
             </select> */}
-          </div>
-        </a>
+          {/* </div> */}
       </Link>
       <nav>
         <ul>
