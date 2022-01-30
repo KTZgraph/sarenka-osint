@@ -16,7 +16,7 @@ function CWEDetails(props) {
 
       <ul className={classes.actions}>
         {props.cveList.map((cveId) => (
-          <li key={cveId}><Button >{cveId}</Button></li>
+          <li key={cveId}><Button link={`/cve/${cveId}`}>{cveId}</Button></li>
         ))}
       </ul>
     </div>
