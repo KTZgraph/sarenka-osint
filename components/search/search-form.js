@@ -1,11 +1,14 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import useTranslation from "next-translate/useTranslation";
 
 import classes from "./search-form.module.css";
 import ArrowRightIcon from "../icons/arrow-right-icon";
 import ShodanData from "./shodan-data/shodan-data";
+import NotificationContext from "../../store/notification-context";
 
 function SearchForm() {
+  const notificationCtx = useContext(NotificationContext);
+
   let { t } = useTranslation();
 
   const searchRef = useRef();
@@ -21,6 +24,11 @@ function SearchForm() {
       console.log("ip address is empty");
       return;
     }
+    notificationCtx.showNotification({
+      title: "Search",
+      message: "Geting data from shodan",
+      status: "pendind",
+    });
 
     const response = await fetch("/api/search", {
       method: "POST",
@@ -30,16 +38,35 @@ function SearchForm() {
       },
     });
 
-    const data = await response.json(); // też zwraca Promise
-    console.log(data);
+    try{
+      const data = await response.json(); // też zwraca Promise      
+      if (!response.ok) {
+        // throw new Error(data.message || "Something went wrong");
+        notificationCtx.showNotification({
+          title: "Error",
+          message: data.message || "Couldn't get data from shodan",
+          status: "error",
+        });
+      }else{
+        setShodanData(JSON.stringify(data)); //nie moze obiektu - musi być jsona
+        notificationCtx.showNotification({
+          title: "Success",
+          message: "Data from shodan are fetched correctly",
+          status: "success",
+        });
+      }
 
-    if (!response.ok) {
-      // throw new Error(data.message || "Something went wrong");
-      console.log(response.error | "somethin went wrong");
+    }catch(error){
+      notificationCtx.showNotification({
+        title: "Error",
+        message: error.message || "Couldn't get data from shodan",
+        status: "error",
+      });
     }
 
+
+
     
-    setShodanData(JSON.stringify(data)); //nie moze obiektu - musi być jsona
   }
 
   return (
