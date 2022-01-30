@@ -3,7 +3,7 @@ import useTranslation from "next-translate/useTranslation";
 
 import classes from "./search-form.module.css";
 import ArrowRightIcon from "../icons/arrow-right-icon";
-import ShodanData from './shodan-data';
+import ShodanData from "./shodan-data/shodan-data";
 
 function SearchForm() {
   let { t } = useTranslation();
@@ -38,12 +38,13 @@ function SearchForm() {
       console.log(response.error | "somethin went wrong");
     }
 
-    setShodanData(data)
+    
+    setShodanData(JSON.stringify(data)); //nie moze obiektu - musi być jsona
   }
 
   return (
     <section className={classes.section}>
-            <h2>{t("search:search")}</h2>
+      <h2>{t("search:search")}</h2>
 
       <form className={classes.form} onClick={submitHandler}>
         <div className={classes.userSearch}>
@@ -64,7 +65,7 @@ function SearchForm() {
       </form>
 
       {/* dane z shodana */}
-      {shodanData && <ShodanData data={shodanData}/>}
+      {shodanData && <ShodanData data={shodanData} />}
     </section>
   );
 }
