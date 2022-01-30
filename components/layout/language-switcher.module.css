@@ -1,7 +1,23 @@
-.languages select{
-    background-color: var(--color-grey-10);
+.languages{
     color: white;
-    padding: 5px;
-    font-family: 'Lato',
+    padding: 0.5rem;
+    margin-left: -1.5rem;
 
+}
+
+.languages button{
+    border: 1px solid var(--color-grey-9);
+    background: transparent;
+    color: black;
+}
+
+.languages button:hover {
+    background-color: var(--color-grey-2);
+    color: #ffffff;
+  }
+
+.languages button.active{
+    color: white;
+    font-style: bold;
+    background-color: black;
 }
