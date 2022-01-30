@@ -3,7 +3,10 @@ import { getAllCVEs, getCVEById } from "../../lib/api-utils";
 import Spinner from "../../components/ui/spinner";
 
 function CVEDetailPage(props) {
-  const cve = JSON.parse(props.cve);
+  let cve;
+  if (props.cve) {
+    cve = JSON.parse(props.cve);
+  }
 
   if (!cve) {
     return <Spinner />;
