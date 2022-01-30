@@ -1,3 +1,10 @@
 {
-    "greeting": "Hellow world!"
+  "greeting": "Hellow world!",
+  "name": "name",
+  "abstraction": "abstraction",
+  "structure": "structure",
+  "status": "status",
+  "description": "description",
+  "extendedDescription": "extended description"
+
 }

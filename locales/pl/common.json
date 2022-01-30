@@ -1,3 +1,10 @@
 {
-    "greeting": "Witaj Świecie!"
+    "greeting": "Witaj Świecie!",
+    "name": "nazwa",
+    "abstraction": "abstrakcja",
+    "structure": "struktura",
+    "status": "status",
+    "description": "opis",
+    "extendedDescription": "rozszerzony opis"
+
 }

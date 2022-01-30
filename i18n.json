@@ -5,6 +5,7 @@
   "pages": {
     "*": ["common"],
     "/": ["search"],
+    "/cwe": ["cwe"],
     "/credentials": ["credentials"]
   }
 }
