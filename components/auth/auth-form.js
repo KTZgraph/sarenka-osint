@@ -48,7 +48,7 @@ function AuthForm() {
         password: enteredPassword,
       });
 
-      if(result.error){
+      if (result.error) {
         // błąd logowania
         notificationCtx.showNotification({
           title: "Error",
@@ -66,7 +66,7 @@ function AuthForm() {
           message: "User logged succesfully",
           status: "success",
         });
-        router.replace('/credentials')
+        router.replace("/credentials");
       }
     }
 
@@ -78,13 +78,28 @@ function AuthForm() {
         if (enteredPassword !== enteredPassConfirm) {
           throw new Error("Passwords don't match");
         }
+        notificationCtx.showNotification({
+          title: "Creating new user",
+          message: "Saving user to database",
+          status: "pendind",
+        });
         const result = await createUser(enteredEmail, enteredPassword);
         // dobrze dac stworzenie użytkownika do notyfikacji
         // wiem, że użytkownik został stworozny
         console.log(result);
+        notificationCtx.showNotification({
+          title: "Success",
+          message: "User created",
+          status: "success",
+        });
       } catch (error) {
         // dobrze dac błąd do notyfikacji
         console.log(error);
+        notificationCtx.showNotification({
+          title: "Error",
+          message: error.message || "User not created!",
+          status: "error",
+        });
       }
     }
 
