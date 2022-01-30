@@ -58,7 +58,9 @@ async function handler(req, res) {
       extended_description,
     });
 
-    res.status(201).json({ message: `${id} created, database id: ${result.insertedId}` });
+    res
+      .status(201)
+      .json({ message: `${id} created, database id: ${result.insertedId}` });
     client.close(); //pamietac o zzamykaniu poączenia z bazą
     return;
   }

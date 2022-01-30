@@ -1,9 +1,7 @@
-
 import SearchForm from "./search-form";
 import classes from "./search.module.css";
 
 function Search() {
-
   return (
     <>
       <div className={classes.search}>

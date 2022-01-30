@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import NotificationContext from '../../store/notification-context';
-import classes from './notification.module.css';
+import { useContext } from "react";
+import NotificationContext from "../../store/notification-context";
+import classes from "./notification.module.css";
 
 function Notification(props) {
   // można contexutu używać także tam gdzie się go wykorzytuje
@@ -8,24 +8,24 @@ function Notification(props) {
 
   const { title, message, status } = props;
 
-  let statusClasses = '';
+  let statusClasses = "";
 
-  if (status === 'success') {
+  if (status === "success") {
     statusClasses = classes.success;
   }
 
-  if (status === 'error') {
+  if (status === "error") {
     statusClasses = classes.error;
   }
 
-  if (status === 'pending') {
+  if (status === "pending") {
     statusClasses = classes.pending;
   }
 
   const activeClasses = `${classes.notification} ${statusClasses}`;
 
   return (
-    <div className={activeClasses} onClick={notificationCtx.hideNotification}>  
+    <div className={activeClasses} onClick={notificationCtx.hideNotification}>
       <h2>{title}</h2>
       <p>{message}</p>
     </div>

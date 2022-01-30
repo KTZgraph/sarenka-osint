@@ -7,7 +7,7 @@ import LanguageSwitcher from "./language-switcher";
 
 function MainNavigation() {
   // do zmiany języka
-  let {t} = useTranslation()
+  let { t } = useTranslation();
 
   const [session, loading] = useSession();
 
@@ -26,21 +26,21 @@ function MainNavigation() {
           {/* login tylko gdy niezalogowany - brak sesji i już dane są pobrane */}
           {!session && !loading && (
             <li>
-              <Link href="/auth">{t('common:login')}</Link>
+              <Link href="/auth">{t("common:login")}</Link>
             </li>
           )}
 
           {/* link widoczny tylko dla zalogowanych */}
           {session && (
             <li>
-              <Link href="/credentials">{t('common:credentials')}</Link>
+              <Link href="/credentials">{t("common:credentials")}</Link>
             </li>
           )}
 
           {/* logout tylko dla zalogowanych - gdy jest sesja */}
           {session && (
             <li>
-              <button onClick={logoutHandler}>{t('common:logout')}</button>
+              <button onClick={logoutHandler}>{t("common:logout")}</button>
             </li>
           )}
         </ul>

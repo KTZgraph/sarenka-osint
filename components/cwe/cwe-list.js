@@ -19,9 +19,7 @@ function CWEList(props) {
 
       <ul className={classes.list}>
         {cweList.map((cwe) => (
-          <CWEItem key={cwe.id}
-          cwe={cwe}
-         />
+          <CWEItem key={cwe.id} cwe={cwe} />
         ))}
       </ul>
     </section>

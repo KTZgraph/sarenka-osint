@@ -38,8 +38,8 @@ function SearchForm() {
       },
     });
 
-    try{
-      const data = await response.json(); // też zwraca Promise      
+    try {
+      const data = await response.json(); // też zwraca Promise
       if (!response.ok) {
         // throw new Error(data.message || "Something went wrong");
         notificationCtx.showNotification({
@@ -47,7 +47,7 @@ function SearchForm() {
           message: data.message || "Couldn't get data from shodan",
           status: "error",
         });
-      }else{
+      } else {
         setShodanData(JSON.stringify(data)); //nie moze obiektu - musi być jsona
         notificationCtx.showNotification({
           title: "Success",
@@ -55,18 +55,13 @@ function SearchForm() {
           status: "success",
         });
       }
-
-    }catch(error){
+    } catch (error) {
       notificationCtx.showNotification({
         title: "Error",
         message: error.message || "Couldn't get data from shodan",
         status: "error",
       });
     }
-
-
-
-    
   }
 
   return (

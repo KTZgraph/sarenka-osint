@@ -1,5 +1,5 @@
 require("dotenv").config(); //zmienne z pliku .env
-const nextTranslate = require('next-translate');
+const nextTranslate = require("next-translate");
 
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
@@ -20,7 +20,7 @@ module.exports = (phase) => {
     };
   }
 
-  // gdy jestesmy w produckji - testowe haskio
+  // gdy jestesmy w produckji
   return {
     ...nextTranslate(),
     trailingSlash: true,

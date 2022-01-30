@@ -19,7 +19,7 @@ function CVEPage(props) {
         <meta name="keywords" content={t("common:cveList")} />
       </Head>
 
-      <CVEList cveList={cveList}/>
+      <CVEList cveList={cveList} />
     </>
   );
 }

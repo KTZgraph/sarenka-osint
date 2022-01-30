@@ -20,7 +20,7 @@
   /* domyslnie pojawia sie w lewym gornym rogu - zmiana na góre prawo*/
   position: absolute;
   right: 0; /* domylsnie ikona ma być widoczna */
-  top: calc(-1* var(--main-navigation-height));
+  top: calc(-1 * var(--main-navigation-height));
   padding: 0.5rem;
   box-sizing: border-box; /*bo przez padding sie powiekszyl elemnt*/
 
@@ -50,5 +50,5 @@
   top: calc(1.55rem + 0.8rem);
 }
 .line3 {
-  top: calc(1.55rem + 0.8rem + 0.8rem) ;
+  top: calc(1.55rem + 0.8rem + 0.8rem);
 }

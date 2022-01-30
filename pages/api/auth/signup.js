@@ -43,8 +43,7 @@ async function handler(req, res) {
     email,
     password: hashedPassword,
     shodanUsername: "",
-    shodanApiKey: ""
-
+    shodanApiKey: "",
   });
 
   res.status(201).json({ message: "Created user!" });

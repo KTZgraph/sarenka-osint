@@ -65,3 +65,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 #### zmienne w tłumaczeniu
 <p>{t('search:introduction', {name:'Losoweimię', age:99999999999})}</p> 
+
+# sprawdzić
+https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_api_handbook_2020_ch02.pdf

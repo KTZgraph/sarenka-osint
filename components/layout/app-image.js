@@ -4,7 +4,6 @@ import Link from "next/link";
 import classes from "./app-image.module.css";
 
 function AppImage(props) {
-
   return (
     <Link href="/">
       <a className={classes.logo}>
@@ -21,7 +20,9 @@ function AppImage(props) {
           <div className={classes.cardBody}>
             <h2 className="card-title">SARENKA</h2>
             {/* warunkowo jak user zalogowany */}
-            {props.userEmail && <p className="card-subtitle">{props.userEmail}</p>}
+            {props.userEmail && (
+              <p className="card-subtitle">{props.userEmail}</p>
+            )}
           </div>
         </div>
       </a>

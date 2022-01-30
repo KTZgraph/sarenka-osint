@@ -26,7 +26,7 @@ export function NotificationContextProvider(props) {
         // czyszczenie timera jeśli useEffect ponownie się uruchomi zanim timer 3s się skońcyz/wyłączy - żeby nie było wielu timerów w tym samym czasie
         clearTimeout(timer);
       };
-    }//jak warunek nie spełniony to useEffect nic nie robi
+    } //jak warunek nie spełniony to useEffect nic nie robi
   }, [activeNotification]); //dependency to activeNotification
 
   function showNotificationHandler(notificationData) {

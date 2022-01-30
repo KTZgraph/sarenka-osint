@@ -1,67 +1,66 @@
-.auth{
-    display: flex;
-    flex-flow: column;
-    font-size: 1.8rem;
-    justify-content: flex-start;
-    background-color: var(--color-grey-9);
-    min-width: 35%;
-    height: 50rem;
-    margin-top: 10rem;
-    flex-basis: 60rem;
+.auth {
+  display: flex;
+  flex-flow: column;
+  font-size: 1.8rem;
+  justify-content: flex-start;
+  background-color: var(--color-grey-9);
+  min-width: 35%;
+  height: 50rem;
+  margin-top: 10rem;
+  flex-basis: 60rem;
 }
 
-.auth h1{
-    padding: 5rem;
+.auth h1 {
+  padding: 5rem;
 }
 
 .control {
-    padding: 1rem 5rem;
-    display: flex;
-    /* flex-basis: 0;
+  padding: 1rem 5rem;
+  display: flex;
+  /* flex-basis: 0;
     flex-grow: 1; */
-    padding-left: 10rem;
+  padding-left: 10rem;
 }
 
-
-.control input{
-    width: 20rem;
-    padding: 0.2rem 0.5rem;
-    margin-left: 0.7rem;
-    color: black;
-    font-size: 1.6rem;
-    flex-grow: 1;
+.control input {
+  width: 20rem;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.7rem;
+  color: black;
+  font-size: 1.6rem;
+  flex-grow: 1;
 }
 
-.actions{
-    display: flex;
-    flex-flow: column;
-    /* justify-content: center; */
-    /* width: 40%; */
-    align-items: center;
+.actions {
+  display: flex;
+  flex-flow: column;
+  /* justify-content: center; */
+  /* width: 40%; */
+  align-items: center;
 }
 
-.actions button{
-    border: 3px solid var(--color-grey-2);
-    background-color: var(--color-grey-10);
-    padding: 0.5rem 1.5rem;
-    margin: 5rem 2.5rem;
-    font-size: 1.8rem;
+.actions button {
+  border: 3px solid var(--color-grey-2);
+  background-color: var(--color-grey-10);
+  padding: 0.5rem 1.5rem;
+  margin: 5rem 2.5rem;
+  font-size: 1.8rem;
 }
 
-.actions button:hover{
-    background-color: var(--color-grey-7);
-    cursor: pointer;
+.actions button:hover {
+  background-color: var(--color-grey-7);
+  cursor: pointer;
 }
 
-.actions .toggle{
-    border: none;
-    background: transparent;
-    padding: 0.5rem 5rem;
-    margin: 5rem 2.5rem;
-    font-size: 1.8rem;
+.actions .toggle {
+  border: none;
+  background: transparent;
+  padding: 0.5rem 5rem;
+  margin: 5rem 2.5rem;
+  font-size: 1.8rem;
 }
 
-.actions .toggle:hover{
-    background: transparent;
-    text-decoration: underline;
+.actions .toggle:hover {
+  background: transparent;
+  text-decoration: underline;
 }

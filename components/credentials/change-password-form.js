@@ -4,7 +4,7 @@ import { useRef } from "react";
 import classes from "./change-password-form.module.css";
 
 function ChangePasswordForm(props) {
-  let {t} = useTranslation()
+  let { t } = useTranslation();
 
   const oldPasswordRef = useRef("");
   const newPasswordRef = useRef("");
@@ -25,33 +25,33 @@ function ChangePasswordForm(props) {
 
   return (
     <section className={classes.section}>
-      <h1>{t('credentials:changePassword')}</h1>
+      <h1>{t("credentials:changePassword")}</h1>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.credentials}>
           <div className={classes.credential}>
-            <label htmlFor="oldPassword">{t('credentials:oldPassword')}</label>
+            <label htmlFor="oldPassword">{t("credentials:oldPassword")}</label>
             <input
               type="password"
               id="oldPassword"
-              placeholder={t('credentials:oldPasswordPlaceholder')}
+              placeholder={t("credentials:oldPasswordPlaceholder")}
               required={true}
               ref={oldPasswordRef}
             />
           </div>
           <div className={classes.credential}>
-            <label htmlFor="newPassword">{t('credentials:newPassword')}</label>
+            <label htmlFor="newPassword">{t("credentials:newPassword")}</label>
             <input
               type="password"
               id="password"
               required={true}
               ref={newPasswordRef}
-              placeholder={t('credentials:newPasswordPlaceholder')}
+              placeholder={t("credentials:newPasswordPlaceholder")}
             />
           </div>
         </div>
 
         <div className={classes.actions}>
-          <button className={classes.action}>{t('common:save')}</button>
+          <button className={classes.action}>{t("common:save")}</button>
         </div>
       </form>
     </section>
