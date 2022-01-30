@@ -4,6 +4,9 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    background-color: var(--color-grey-8);
+    padding: 1.5rem;
+    text-align: center;
 }
 .cardImg{
     align-self: center;

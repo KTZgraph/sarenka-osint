@@ -1,30 +1,35 @@
 import { useRouter } from "next/router";
 
-function LanguageSwitcher(){
-    let router = useRouter();
+import Link from "next/link";
+import classes from "./language-switcher.module.css";
+import Select, { components } from "react-select";
 
-    return (
-        <div className={classes.languages}>
-        <select>
-          {router.locales.map((locale) => (
-            <option key={locale}>
-              <Link href={router.asPath} locale={locale}>
-                <a>{locale}</a>
-              </Link>
-            </option>
-          ))}
-        </select>
+const options = [
+  {value: "en-US", label: "EN"},
+  {pl: "pl", label: "PL"},
+]
 
-        {/* <select>
-          <option>
-            <span>EN</span>
+function LanguageSwitcher() {
+  let router = useRouter();
+
+const changeLanguageHandler = (locale) => {
+  console.log(locale)
+}
+
+  return (
+    <div className={classes.languages}>
+      <select>
+        {router.locales.map((locale) => (
+          <option key={locale} value={locale} onChange={changeLanguageHandler}>
+            {locale}
+            {/* <Link href={router.asPath} locale={locale}>
+              <a>{locale}</a>
+            </Link> */}
           </option>
-          <option>
-            <span>PL</span>
-          </option>
-        </select> */}
-      </div>
-    )
+        ))}
+      </select>
+    </div>
+  );
 }
 
 export default LanguageSwitcher;

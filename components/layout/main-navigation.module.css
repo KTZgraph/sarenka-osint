@@ -11,13 +11,7 @@
     font-size: 2rem;
 }
 
-.languages select{
-    background-color: var(--color-grey-10);
-    color: white;
-    padding: 5px;
-    font-family: 'Lato',
 
-}
 
 .header ul {
     display: flex;
