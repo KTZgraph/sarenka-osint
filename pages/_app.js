@@ -3,7 +3,7 @@
 // reszta manualnie może sprawdzić sesję
 import Head from "next/head";
 import { Provider } from "next-auth/client";
-
+import { appWithTranslation } from "next-i18next";
 
 import Layout from "../components/layout/layout";
 import "../styles/globals.css";
@@ -30,5 +30,6 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+// export default MyApp;
+export default appWithTranslation(MyApp);
 

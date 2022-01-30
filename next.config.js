@@ -1,6 +1,6 @@
 require("dotenv").config(); //zmienne z pliku .env
+const { i18n } = require("./next-i18next.config");
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
-const { i18n } = require('./next-i18next.config')
 
 module.exports = (phase) => {
   // credentiale do bazy danych z pliku ./.env
