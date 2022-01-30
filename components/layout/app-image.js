@@ -1,13 +1,13 @@
 import Image from "next/image";
-import classes from "./app-image.module.css";
 import Link from "next/link";
 
+import classes from "./app-image.module.css";
+
 function AppImage(props) {
-    console.log("\n\n\n\n\n")
-    console.log(props)
+
   return (
     <Link href="/">
-      <a href="#" className={classes.logo}>
+      <a className={classes.logo}>
         <div className={classes.card}>
           <div className={classes.cardImg}>
             <Image

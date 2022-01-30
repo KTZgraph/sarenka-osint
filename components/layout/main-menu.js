@@ -21,7 +21,7 @@ function MainMenu() {
       <ul className={classes.list}>
         <li className={classes.item}>
           <Link href="/">
-            <a href="#" className={classes.link}>
+            <a className={classes.link}>
               <span className={classes.text}>Search</span>
             </a>
           </Link>
@@ -29,7 +29,7 @@ function MainMenu() {
 
         <li className={classes.item}>
           <Link href="/cwe">
-            <a href="#" className={classes.link}>
+            <a className={classes.link}>
               <span className={classes.text}>CWE List</span>
             </a>
           </Link>
@@ -37,7 +37,7 @@ function MainMenu() {
 
         <li className={classes.item}>
           <Link href="/cve">
-            <a href="#" className={classes.link}>
+            <a className={classes.link}>
               <span className={classes.text}>CVE List</span>
             </a>
           </Link>
