@@ -19,6 +19,8 @@ function CWEDetails(props) {
           <li key={cveId}><Button link={`/cve/${cveId}`}>{cveId}</Button></li>
         ))}
       </ul>
+
+      
     </div>
   );
 }
