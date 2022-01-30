@@ -1,9 +1,13 @@
 import { useRef, useState } from "react";
+import useTranslation from "next-translate/useTranslation";
+
 import classes from "./search-form.module.css";
 import ArrowRightIcon from "../icons/arrow-right-icon";
 import ShodanData from './shodan-data';
 
 function SearchForm() {
+  let { t } = useTranslation();
+
   const searchRef = useRef();
   const [shodanData, setShodanData] = useState();
 
@@ -39,6 +43,8 @@ function SearchForm() {
 
   return (
     <section className={classes.section}>
+            <h2>{t("search:search")}</h2>
+
       <form className={classes.form} onClick={submitHandler}>
         <div className={classes.userSearch}>
           <label htmlFor="userSearch"></label>

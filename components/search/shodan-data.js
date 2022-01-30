@@ -1,5 +1,7 @@
+import classes from './shodan-data.module.css'
+
 function ShodanData({data}) {
-    return <div>
+    return <div className={classes.data}>
         {data.ip && <p>{data.ip}</p>}
         {data.ip_str && <p>{data.ip_str}</p>}
         {data.city && <p>{data.city}</p>}
