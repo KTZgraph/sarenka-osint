@@ -50,6 +50,12 @@ function Credentials() {
   }
 
   async function changeShodanCredentialsHandler(credentialsData) {
+    notificationCtx.showNotification({
+      title: "Shodan Credentials",
+      message: "Saving credeniatls for shodan",
+      status: "pendind",
+    });
+
     const response = await fetch("/api/user/shodan-credentials", {
       method: "PATCH",
       body: JSON.stringify(credentialsData),
@@ -58,9 +64,24 @@ function Credentials() {
       },
     });
 
-    const data = await response.json();
-    // UI - dać userowi odpowiedź jakąs
-    console.log(data);
+    try {
+      const data = await response.json();
+      if (!response.ok) {
+        console.log(data);
+        throw new Error(data.message || "Something went wrong");
+      }
+      notificationCtx.showNotification({
+        title: "Success",
+        message: "Succesfuly saved credentials for shodan",
+        status: "success",
+      });
+    } catch (error) {
+      notificationCtx.showNotification({
+        title: "Error",
+        message: error.message || "Couldn't save shodan credentials",
+        status: "error",
+      });
+    }
   }
 
   return (
