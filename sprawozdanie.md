@@ -1,12 +1,12 @@
-##### Liczebość zespołu
+#### Liczebość zespołu
 1
-##### Technologia wykonania projektu
-Next.js, React, HTML, CSS, MongoDB  
+#### Technologia wykonania projektu
+Next.js, React, HTML, CSS  
 
-##### Forma przekazania projektu
-###### repozytorium
+#### Forma przekazania projektu
+##### repozytorium
 https://github.com/pawlaczyk/sarenka-osint
-###### demo
+##### demo
 https://sarenka-osint.vercel.app/
 
 # Wariant I – aplikacja kliencka
