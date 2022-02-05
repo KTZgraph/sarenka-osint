@@ -71,3 +71,10 @@ https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_api_
 
 # wymagaia funkjconalne vs pozafunkcjonalne
 http://home.elka.pw.edu.pl/~wmatusze/pub/tabela.pdf
+
+# Video Data 
+https://www.pexels.com/pl-pl/video/cyfrowa-prezentacja-informacji-na-ekranie-monitora-3130182/
+# Video network
+https://www.pexels.com/pl-pl/video/cyfrowa-projekcja-abstrakcyjnych-linii-geometrycznych-3129671/
+
+
